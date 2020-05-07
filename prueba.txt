@@ -1,0 +1,27 @@
+FUNCION inicio(){
+
+  var a;
+  d = 2 + 4;
+  d = 3 + numero;
+  d = numero * 3;
+  e = 2 / (numero / 3);
+  x = "Fernando";
+  if (numero <= 6) {
+    numero = numero + 2;
+  } else {
+    numero = numero - 2;
+  }
+
+  if (numero <= 61) {
+    numero = numero + 2;
+  }
+
+  
+  
+   while (numero > 20){}
+
+  while (b > numero) {
+    total = numero;
+  }   
+
+}

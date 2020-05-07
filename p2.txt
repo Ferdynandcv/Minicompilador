@@ -1,0 +1,10 @@
+FUNCION inicio () {
+
+  HACER {
+  
+  } while (numero > 20)
+
+  while (b > numero)FUNCION {
+    total += numero;
+  }
+}
