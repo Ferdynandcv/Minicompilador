@@ -7,85 +7,84 @@ VERBOSE = 1
 
 
 def p_programa(p):
-    'programa : FUNCION ID LPAREN RPAREN LBLOCK declaracionLista RBLOCK'
+    'programa : KART ID MonedaO MonedaR RayoL declaracionLista RayoR'
     pass
 
 def p_declaracionLista(p):
-    '''declaracionLista : declaracionLista  declaration
-                                            | declaration
+    '''declaracionLista : declaracionLista  declaracion
+                                            | declaracion
     '''
     pass
 
 
-def p_declaration(p):
+def p_declaracion(p):
   # let a;
   # a = 2;
   # let a = number;
-    '''declaration : tipo ID PUNTOCOMA
-                    | ID IGUAL var PUNTOCOMA
-                    | tipo ID IGUAL var PUNTOCOMA
+    '''declaracion : tipo ID HuevoBirdo
+                    | ID Toad var HuevoBirdo
+                    | tipo ID Toad var HuevoBirdo
                     | if_condicion
-                    | var PUNTOCOMA
+                    | var HuevoBirdo
                     | do_condicion
-                    | while_condition
+                    | while_condicion
     '''
     pass
 
 
-def p_operation(p):
-  # let a = 2+2;
+def p_OperacionKart(p):
   # a = 3+4;
-    '''declaration : tipo ID IGUAL expression PUNTOCOMA
-                  | ID IGUAL expression PUNTOCOMA
-                  | tipo ID IGUAL expression_avanced PUNTOCOMA
-                  | ID IGUAL expression_avanced PUNTOCOMA
+    '''declaracion : tipo ID Toad expresionKart HuevoBirdo
+                  | ID Toad expresionKart HuevoBirdo
+                  | tipo ID Toad expresionKart_avanced HuevoBirdo
+                  | ID Toad expresionKart_avanced HuevoBirdo
     '''
     pass
 
 
-def p_expression(p):
-    '''expression : var MAS var
-                  | var MENOS var
-                  | var  MULT var
-                  | var DIVIDIR var
+def p_expresionKart(p):
+    '''expresionKart : var Mario var
+                  | var Luigi var
+                  | var Koopa var
+                  | var Waluigi var
     '''
     pass
 
 
-def p_expression_avanced(p):
-    '''expression_avanced : var MAS LPAREN  expression RPAREN
-                   | var MENOS LPAREN  expression RPAREN
-                   | var  MULT LPAREN  expression RPAREN
-                   | var DIVIDIR LPAREN  expression RPAREN
+def p_expresionKart_avanced(p):
+    '''expresionKart_avanced : var Mario MonedaO  expresionKart MonedaR
+                   | var Luigi MonedaO  expresionKart MonedaR
+                   | var  Koopa MonedaO  expresionKart MonedaR
+                   | var  MonedaO  expresionKart MonedaR
      '''
     pass
 
 
-def p_expression_bool(p):
-    '''expression_bool : var IGUALXDOS var
-                   | var MENOR var
-                   | var MAYOR var
-                   | var MAYORIGUALQ var
-                   | var MENORIGUALQ var
+def p_expresionKart_bool(p):
+    '''expresionKart_bool : var Furor var
+                   | var Peach var
+                   | var Daysi var
+                   | var DonkeyKong var
+                   | var DiddyKong var
      '''
     pass
 
 def p_if_condicion(p):
-    '''if_condicion : IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-                | IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
+    '''if_condicion : IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+                | IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
     '''
     pass
 
 
 def p_do_condicion(p):
-    '''do_condicion : DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN 
+    '''do_condicion : DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR 
     '''
     pass
 
 
-def p_while_condition(p):
-    '''while_condition : 
-                | WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK 
+def p_while_condicion(p):
+    '''while_condicion : 
+                | WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR 
     '''
     pass
 
@@ -98,8 +97,8 @@ def p_tipo(p):
 
 def p_var(p):
     '''var : ID
-           | NUMERO
-           | CADENA
+           | Puntos
+           | Texto
      '''
     pass
 

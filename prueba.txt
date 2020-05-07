@@ -1,4 +1,4 @@
-FUNCION inicio(){
+KART inicio(){
 
   var a;
   d = 2 + 4;
@@ -6,21 +6,21 @@ FUNCION inicio(){
   d = numero * 3;
   e = 2 / (numero / 3);
   x = "Fernando";
-  if (numero <= 6) {
+  CapVerde (numero <= 6) {
     numero = numero + 2;
-  } else {
+  } CapPichos {
     numero = numero - 2;
   }
 
-  if (numero <= 61) {
+  CapVerde (numero <= 61) {
     numero = numero + 2;
   }
 
   
   
-   while (numero > 20){}
+   platano (numero > 20){}
 
-  while (b > numero) {
+  platano (b > numero) {
     total = numero;
   }   
 

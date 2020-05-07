@@ -4,7 +4,7 @@ import ply.lex as lex
 
 tokens = (
 
-    'FUNCION', 
+    'KART', 
     'IF', 
     'VAR',
     'PRINT',
@@ -15,51 +15,49 @@ tokens = (
     'TRUE',
     'FALSE',
 
-    'MAS',
-    'MASXDOS',
-    'MENOS',
-    'MULT',
-    'DIVIDIR',
-    'MENOR',
-    'MAYORIGUALQ',
-    'MENORIGUALQ',
-    'MAYOR',
-    'IGUAL',
-    'IGUALXDOS',
-    'PUNTOCOMA',
-    'COMA',
-    'LPAREN',
-    'RPAREN',
-    'LBLOCK',
-    'RBLOCK',
-    'DOSPUNTOS',
-    'HASHTAG',
+    'Mario',
+    'BebeMario',
+    'Luigi',
+    'Koopa',
+    'Waluigi',
+    'Peach',
+    'DonkeyKong',
+    'DiddyKong',
+    'Daysi',
+    'Toad',
+    'Furor',
+    'HuevoBirdo',
+    'Bobombs',
+    'MonedaO',
+    'MonedaR',
+    'RayoL',
+    'RayoR',
+    'HuevoYoshi',
+    'DonPisoton',
     'QUOTES',
-    'APOSTROPHE',
     'COMENTARIOS',
     'ID',
-    'NUMERO',
-    'CADENA',
+    'Puntos',
+    'Texto',
 )
 
-t_MAS            = r'\+'
-t_MENOS          = r'-'
-t_MULT           = r'\*'
-t_DIVIDIR        = r'/'
-t_IGUAL          = r'='
-t_MENOR          = r'<'
-t_MAYOR          = r'>'
-t_PUNTOCOMA      = r';'
-t_COMA           = r','
-t_LPAREN         = r'\('
-t_RPAREN         = r'\)'
-t_LBLOCK         = r'{'
-t_RBLOCK         = r'}'
-t_DOSPUNTOS      = r':'
-t_HASHTAG        = r'\#'
-t_QUOTES         = r'\"'
-t_APOSTROPHE     = r'\''
-t_ignore         = " \t"
+t_Mario             = r'\+'
+t_Luigi             = r'-'
+t_Koopa             = r'\*'
+t_Waluigi           = r'/'
+t_Toad              = r'='
+t_Peach             = r'<'
+t_Daysi             = r'>'
+t_HuevoBirdo        = r';'
+t_Bobombs           = r','
+t_MonedaO           = r'\('
+t_MonedaR           = r'\)'
+t_RayoL             = r'{'
+t_RayoR             = r'}'
+t_HuevoYoshi        = r':'
+t_DonPisoton        = r'\#'
+t_QUOTES            = r'\"'
+t_ignore            = " \t"
 
 def t_newline(t):
     r'\n+'
@@ -70,54 +68,54 @@ def t_VAR(t):
     return t
     
 def t_DO(t):
-    r'HACER'
+    r'BillBala'
     return t
 
 def t_ELSE(t):
-    r'else'
+    r'CapPichos'
     return t
 
 def t_FOR(t):
-    r'for'
+    r'CapRojo'
     return t
 
-def t_FUNCION(t):
-    r'FUNCION'
+def t_KART(t):
+    r'KART'
     return t
 
 def t_IF(t):
-    r'if'
+    r'CapVerde'
     return t
 
 def t_PRINT(t):
-    r'print'
+    r'Champiturbo'
     return t
 
 def t_WHILE(t):
-    r'while'
+    r'platano'
     return t
 
 def t_TRUE(t):
-    r'true'
+    r'FlorFuego'
     return t
 
 def t_FALSE(t):
-    r'false'
+    r'FlorBoomerang'
     return t
 
-def t_MENORIGUALQ(t):
+def t_DiddyKong(t):
     r'<='
     return t
 
-def t_MAYORIGUALQ(t):
+def t_DonkeyKong(t):
     r'>='
     return t
 
-def t_IGUALXDOS(t):
+def t_Furor(t):
     r'=='
     return t
 
-def t_MASXDOS(t):
+def t_BebeMario(t):
     r'\+\+'
     return t
 
@@ -125,7 +123,7 @@ def t_COMENTARIOS(t):
     r'\/\*([^*]|\*[^\/])*(\*)+\/'
     t.lexer.lineno += t.value.count('\n')
 
-def t_NUMERO(t):
+def t_Puntos(t):
     r'\d+(\.\d+)?'
     t.value = float(t.value)
     return t
@@ -134,7 +132,7 @@ def t_ID(t):
     r'\w+(\w\d)*'
     return t
 
-def t_CADENA(t):
+def t_Texto(t):
     r'(("[^"]*")|(\'[^\']*\')|(\`[^\`]*\`))'
     return t
 

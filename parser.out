@@ -2,14 +2,13 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
 Unused terminals:
 
-    APOSTROPHE
-    COMA
+    BebeMario
+    Bobombs
     COMENTARIOS
-    DOSPUNTOS
+    DonPisoton
     FALSE
     FOR
-    HASHTAG
-    MASXDOS
+    HuevoYoshi
     PRINT
     QUOTES
     TRUE
@@ -17,104 +16,103 @@ Unused terminals:
 Grammar
 
 Rule 0     S' -> programa
-Rule 1     programa -> FUNCION ID LPAREN RPAREN LBLOCK declaracionLista RBLOCK
-Rule 2     declaracionLista -> declaracionLista declaration
-Rule 3     declaracionLista -> declaration
-Rule 4     declaration -> tipo ID PUNTOCOMA
-Rule 5     declaration -> ID IGUAL var PUNTOCOMA
-Rule 6     declaration -> tipo ID IGUAL var PUNTOCOMA
-Rule 7     declaration -> if_condicion
-Rule 8     declaration -> var PUNTOCOMA
-Rule 9     declaration -> do_condicion
-Rule 10    declaration -> while_condition
-Rule 11    declaration -> tipo ID IGUAL expression PUNTOCOMA
-Rule 12    declaration -> ID IGUAL expression PUNTOCOMA
-Rule 13    declaration -> tipo ID IGUAL expression_avanced PUNTOCOMA
-Rule 14    declaration -> ID IGUAL expression_avanced PUNTOCOMA
-Rule 15    expression -> var MAS var
-Rule 16    expression -> var MENOS var
-Rule 17    expression -> var MULT var
-Rule 18    expression -> var DIVIDIR var
-Rule 19    expression_avanced -> var MAS LPAREN expression RPAREN
-Rule 20    expression_avanced -> var MENOS LPAREN expression RPAREN
-Rule 21    expression_avanced -> var MULT LPAREN expression RPAREN
-Rule 22    expression_avanced -> var DIVIDIR LPAREN expression RPAREN
-Rule 23    expression_bool -> var IGUALXDOS var
-Rule 24    expression_bool -> var MENOR var
-Rule 25    expression_bool -> var MAYOR var
-Rule 26    expression_bool -> var MAYORIGUALQ var
-Rule 27    expression_bool -> var MENORIGUALQ var
-Rule 28    if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-Rule 29    if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
-Rule 30    do_condicion -> DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN
-Rule 31    while_condition -> <empty>
-Rule 32    while_condition -> WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
+Rule 1     programa -> KART ID MonedaO MonedaR RayoL declaracionLista RayoR
+Rule 2     declaracionLista -> declaracionLista declaracion
+Rule 3     declaracionLista -> declaracion
+Rule 4     declaracion -> tipo ID HuevoBirdo
+Rule 5     declaracion -> ID Toad var HuevoBirdo
+Rule 6     declaracion -> tipo ID Toad var HuevoBirdo
+Rule 7     declaracion -> if_condicion
+Rule 8     declaracion -> var HuevoBirdo
+Rule 9     declaracion -> do_condicion
+Rule 10    declaracion -> while_condicion
+Rule 11    declaracion -> tipo ID Toad expresionKart HuevoBirdo
+Rule 12    declaracion -> ID Toad expresionKart HuevoBirdo
+Rule 13    declaracion -> tipo ID Toad expresionKart_avanced HuevoBirdo
+Rule 14    declaracion -> ID Toad expresionKart_avanced HuevoBirdo
+Rule 15    expresionKart -> var Mario var
+Rule 16    expresionKart -> var Luigi var
+Rule 17    expresionKart -> var Koopa var
+Rule 18    expresionKart -> var Waluigi var
+Rule 19    expresionKart_avanced -> var Mario MonedaO expresionKart MonedaR
+Rule 20    expresionKart_avanced -> var Luigi MonedaO expresionKart MonedaR
+Rule 21    expresionKart_avanced -> var Koopa MonedaO expresionKart MonedaR
+Rule 22    expresionKart_avanced -> var MonedaO expresionKart MonedaR
+Rule 23    expresionKart_bool -> var Furor var
+Rule 24    expresionKart_bool -> var Peach var
+Rule 25    expresionKart_bool -> var Daysi var
+Rule 26    expresionKart_bool -> var DonkeyKong var
+Rule 27    expresionKart_bool -> var DiddyKong var
+Rule 28    if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+Rule 29    if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
+Rule 30    do_condicion -> DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR
+Rule 31    while_condicion -> <empty>
+Rule 32    while_condicion -> WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
 Rule 33    tipo -> VAR
 Rule 34    var -> ID
-Rule 35    var -> NUMERO
-Rule 36    var -> CADENA
+Rule 35    var -> Puntos
+Rule 36    var -> Texto
 
 Terminals, with rules where they appear
 
-APOSTROPHE           : 
-CADENA               : 36
-COMA                 : 
+BebeMario            : 
+Bobombs              : 
 COMENTARIOS          : 
-DIVIDIR              : 18 22
 DO                   : 30
-DOSPUNTOS            : 
+Daysi                : 25
+DiddyKong            : 27
+DonPisoton           : 
+DonkeyKong           : 26
 ELSE                 : 29
 FALSE                : 
 FOR                  : 
-FUNCION              : 1
-HASHTAG              : 
+Furor                : 23
+HuevoBirdo           : 4 5 6 8 11 12 13 14
+HuevoYoshi           : 
 ID                   : 1 4 5 6 11 12 13 14 34
 IF                   : 28 29
-IGUAL                : 5 6 11 12 13 14
-IGUALXDOS            : 23
-LBLOCK               : 1 28 29 29 30 32
-LPAREN               : 1 19 20 21 22 28 29 30 32
-MAS                  : 15 19
-MASXDOS              : 
-MAYOR                : 25
-MAYORIGUALQ          : 26
-MENOR                : 24
-MENORIGUALQ          : 27
-MENOS                : 16 20
-MULT                 : 17 21
-NUMERO               : 35
+KART                 : 1
+Koopa                : 17 21
+Luigi                : 16 20
+Mario                : 15 19
+MonedaO              : 1 19 20 21 22 28 29 30 32
+MonedaR              : 1 19 20 21 22 28 29 30 32
 PRINT                : 
-PUNTOCOMA            : 4 5 6 8 11 12 13 14
+Peach                : 24
+Puntos               : 35
 QUOTES               : 
-RBLOCK               : 1 28 29 29 30 32
-RPAREN               : 1 19 20 21 22 28 29 30 32
+RayoL                : 1 28 29 29 30 32
+RayoR                : 1 28 29 29 30 32
 TRUE                 : 
+Texto                : 36
+Toad                 : 5 6 11 12 13 14
 VAR                  : 33
 WHILE                : 30 32
+Waluigi              : 18
 error                : 
 
 Nonterminals, with rules where they appear
 
+declaracion          : 2 3
 declaracionLista     : 1 2 28 29 29 30 32
-declaration          : 2 3
 do_condicion         : 9
-expression           : 11 12 19 20 21 22
-expression_avanced   : 13 14
-expression_bool      : 28 29 30 32
+expresionKart        : 11 12 19 20 21 22
+expresionKart_avanced : 13 14
+expresionKart_bool   : 28 29 30 32
 if_condicion         : 7
 programa             : 0
 tipo                 : 4 6 11 13
 var                  : 5 6 8 15 15 16 16 17 17 18 18 19 20 21 22 23 23 24 24 25 25 26 26 27 27
-while_condition      : 10
+while_condicion      : 10
 
 Parsing method: LALR
 
 state 0
 
     (0) S' -> . programa
-    (1) programa -> . FUNCION ID LPAREN RPAREN LBLOCK declaracionLista RBLOCK
+    (1) programa -> . KART ID MonedaO MonedaR RayoL declaracionLista RayoR
 
-    FUNCION         shift and go to state 2
+    KART            shift and go to state 2
 
     programa                       shift and go to state 1
 
@@ -126,230 +124,230 @@ state 1
 
 state 2
 
-    (1) programa -> FUNCION . ID LPAREN RPAREN LBLOCK declaracionLista RBLOCK
+    (1) programa -> KART . ID MonedaO MonedaR RayoL declaracionLista RayoR
 
     ID              shift and go to state 3
 
 
 state 3
 
-    (1) programa -> FUNCION ID . LPAREN RPAREN LBLOCK declaracionLista RBLOCK
+    (1) programa -> KART ID . MonedaO MonedaR RayoL declaracionLista RayoR
 
-    LPAREN          shift and go to state 4
+    MonedaO         shift and go to state 4
 
 
 state 4
 
-    (1) programa -> FUNCION ID LPAREN . RPAREN LBLOCK declaracionLista RBLOCK
+    (1) programa -> KART ID MonedaO . MonedaR RayoL declaracionLista RayoR
 
-    RPAREN          shift and go to state 5
+    MonedaR         shift and go to state 5
 
 
 state 5
 
-    (1) programa -> FUNCION ID LPAREN RPAREN . LBLOCK declaracionLista RBLOCK
+    (1) programa -> KART ID MonedaO MonedaR . RayoL declaracionLista RayoR
 
-    LBLOCK          shift and go to state 6
+    RayoL           shift and go to state 6
 
 
 state 6
 
-    (1) programa -> FUNCION ID LPAREN RPAREN LBLOCK . declaracionLista RBLOCK
-    (2) declaracionLista -> . declaracionLista declaration
-    (3) declaracionLista -> . declaration
-    (4) declaration -> . tipo ID PUNTOCOMA
-    (5) declaration -> . ID IGUAL var PUNTOCOMA
-    (6) declaration -> . tipo ID IGUAL var PUNTOCOMA
-    (7) declaration -> . if_condicion
-    (8) declaration -> . var PUNTOCOMA
-    (9) declaration -> . do_condicion
-    (10) declaration -> . while_condition
-    (11) declaration -> . tipo ID IGUAL expression PUNTOCOMA
-    (12) declaration -> . ID IGUAL expression PUNTOCOMA
-    (13) declaration -> . tipo ID IGUAL expression_avanced PUNTOCOMA
-    (14) declaration -> . ID IGUAL expression_avanced PUNTOCOMA
+    (1) programa -> KART ID MonedaO MonedaR RayoL . declaracionLista RayoR
+    (2) declaracionLista -> . declaracionLista declaracion
+    (3) declaracionLista -> . declaracion
+    (4) declaracion -> . tipo ID HuevoBirdo
+    (5) declaracion -> . ID Toad var HuevoBirdo
+    (6) declaracion -> . tipo ID Toad var HuevoBirdo
+    (7) declaracion -> . if_condicion
+    (8) declaracion -> . var HuevoBirdo
+    (9) declaracion -> . do_condicion
+    (10) declaracion -> . while_condicion
+    (11) declaracion -> . tipo ID Toad expresionKart HuevoBirdo
+    (12) declaracion -> . ID Toad expresionKart HuevoBirdo
+    (13) declaracion -> . tipo ID Toad expresionKart_avanced HuevoBirdo
+    (14) declaracion -> . ID Toad expresionKart_avanced HuevoBirdo
     (33) tipo -> . VAR
-    (28) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
+    (28) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+    (29) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-    (30) do_condicion -> . DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN
-    (31) while_condition -> .
-    (32) while_condition -> . WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
+    (35) var -> . Puntos
+    (36) var -> . Texto
+    (30) do_condicion -> . DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR
+    (31) while_condicion -> .
+    (32) while_condicion -> . WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
 
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for VAR resolved as shift
   ! shift/reduce conflict for IF resolved as shift
-  ! shift/reduce conflict for NUMERO resolved as shift
-  ! shift/reduce conflict for CADENA resolved as shift
+  ! shift/reduce conflict for Puntos resolved as shift
+  ! shift/reduce conflict for Texto resolved as shift
   ! shift/reduce conflict for DO resolved as shift
   ! shift/reduce conflict for WHILE resolved as shift
     ID              shift and go to state 7
     VAR             shift and go to state 15
     IF              shift and go to state 16
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
     DO              shift and go to state 19
-    RBLOCK          reduce using rule 31 (while_condition -> .)
+    RayoR           reduce using rule 31 (while_condicion -> .)
     WHILE           shift and go to state 20
 
-  ! ID              [ reduce using rule 31 (while_condition -> .) ]
-  ! VAR             [ reduce using rule 31 (while_condition -> .) ]
-  ! IF              [ reduce using rule 31 (while_condition -> .) ]
-  ! NUMERO          [ reduce using rule 31 (while_condition -> .) ]
-  ! CADENA          [ reduce using rule 31 (while_condition -> .) ]
-  ! DO              [ reduce using rule 31 (while_condition -> .) ]
-  ! WHILE           [ reduce using rule 31 (while_condition -> .) ]
+  ! ID              [ reduce using rule 31 (while_condicion -> .) ]
+  ! VAR             [ reduce using rule 31 (while_condicion -> .) ]
+  ! IF              [ reduce using rule 31 (while_condicion -> .) ]
+  ! Puntos          [ reduce using rule 31 (while_condicion -> .) ]
+  ! Texto           [ reduce using rule 31 (while_condicion -> .) ]
+  ! DO              [ reduce using rule 31 (while_condicion -> .) ]
+  ! WHILE           [ reduce using rule 31 (while_condicion -> .) ]
 
     declaracionLista               shift and go to state 8
-    declaration                    shift and go to state 9
+    declaracion                    shift and go to state 9
     tipo                           shift and go to state 10
     var                            shift and go to state 11
     if_condicion                   shift and go to state 12
     do_condicion                   shift and go to state 13
-    while_condition                shift and go to state 14
+    while_condicion                shift and go to state 14
 
 state 7
 
-    (5) declaration -> ID . IGUAL var PUNTOCOMA
-    (12) declaration -> ID . IGUAL expression PUNTOCOMA
-    (14) declaration -> ID . IGUAL expression_avanced PUNTOCOMA
+    (5) declaracion -> ID . Toad var HuevoBirdo
+    (12) declaracion -> ID . Toad expresionKart HuevoBirdo
+    (14) declaracion -> ID . Toad expresionKart_avanced HuevoBirdo
     (34) var -> ID .
 
-    IGUAL           shift and go to state 21
-    PUNTOCOMA       reduce using rule 34 (var -> ID .)
+    Toad            shift and go to state 21
+    HuevoBirdo      reduce using rule 34 (var -> ID .)
 
 
 state 8
 
-    (1) programa -> FUNCION ID LPAREN RPAREN LBLOCK declaracionLista . RBLOCK
-    (2) declaracionLista -> declaracionLista . declaration
-    (4) declaration -> . tipo ID PUNTOCOMA
-    (5) declaration -> . ID IGUAL var PUNTOCOMA
-    (6) declaration -> . tipo ID IGUAL var PUNTOCOMA
-    (7) declaration -> . if_condicion
-    (8) declaration -> . var PUNTOCOMA
-    (9) declaration -> . do_condicion
-    (10) declaration -> . while_condition
-    (11) declaration -> . tipo ID IGUAL expression PUNTOCOMA
-    (12) declaration -> . ID IGUAL expression PUNTOCOMA
-    (13) declaration -> . tipo ID IGUAL expression_avanced PUNTOCOMA
-    (14) declaration -> . ID IGUAL expression_avanced PUNTOCOMA
+    (1) programa -> KART ID MonedaO MonedaR RayoL declaracionLista . RayoR
+    (2) declaracionLista -> declaracionLista . declaracion
+    (4) declaracion -> . tipo ID HuevoBirdo
+    (5) declaracion -> . ID Toad var HuevoBirdo
+    (6) declaracion -> . tipo ID Toad var HuevoBirdo
+    (7) declaracion -> . if_condicion
+    (8) declaracion -> . var HuevoBirdo
+    (9) declaracion -> . do_condicion
+    (10) declaracion -> . while_condicion
+    (11) declaracion -> . tipo ID Toad expresionKart HuevoBirdo
+    (12) declaracion -> . ID Toad expresionKart HuevoBirdo
+    (13) declaracion -> . tipo ID Toad expresionKart_avanced HuevoBirdo
+    (14) declaracion -> . ID Toad expresionKart_avanced HuevoBirdo
     (33) tipo -> . VAR
-    (28) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
+    (28) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+    (29) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-    (30) do_condicion -> . DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN
-    (31) while_condition -> .
-    (32) while_condition -> . WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
+    (35) var -> . Puntos
+    (36) var -> . Texto
+    (30) do_condicion -> . DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR
+    (31) while_condicion -> .
+    (32) while_condicion -> . WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
 
-  ! shift/reduce conflict for RBLOCK resolved as shift
+  ! shift/reduce conflict for RayoR resolved as shift
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for VAR resolved as shift
   ! shift/reduce conflict for IF resolved as shift
-  ! shift/reduce conflict for NUMERO resolved as shift
-  ! shift/reduce conflict for CADENA resolved as shift
+  ! shift/reduce conflict for Puntos resolved as shift
+  ! shift/reduce conflict for Texto resolved as shift
   ! shift/reduce conflict for DO resolved as shift
   ! shift/reduce conflict for WHILE resolved as shift
-    RBLOCK          shift and go to state 22
+    RayoR           shift and go to state 22
     ID              shift and go to state 7
     VAR             shift and go to state 15
     IF              shift and go to state 16
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
     DO              shift and go to state 19
     WHILE           shift and go to state 20
 
-  ! RBLOCK          [ reduce using rule 31 (while_condition -> .) ]
-  ! ID              [ reduce using rule 31 (while_condition -> .) ]
-  ! VAR             [ reduce using rule 31 (while_condition -> .) ]
-  ! IF              [ reduce using rule 31 (while_condition -> .) ]
-  ! NUMERO          [ reduce using rule 31 (while_condition -> .) ]
-  ! CADENA          [ reduce using rule 31 (while_condition -> .) ]
-  ! DO              [ reduce using rule 31 (while_condition -> .) ]
-  ! WHILE           [ reduce using rule 31 (while_condition -> .) ]
+  ! RayoR           [ reduce using rule 31 (while_condicion -> .) ]
+  ! ID              [ reduce using rule 31 (while_condicion -> .) ]
+  ! VAR             [ reduce using rule 31 (while_condicion -> .) ]
+  ! IF              [ reduce using rule 31 (while_condicion -> .) ]
+  ! Puntos          [ reduce using rule 31 (while_condicion -> .) ]
+  ! Texto           [ reduce using rule 31 (while_condicion -> .) ]
+  ! DO              [ reduce using rule 31 (while_condicion -> .) ]
+  ! WHILE           [ reduce using rule 31 (while_condicion -> .) ]
 
-    declaration                    shift and go to state 23
+    declaracion                    shift and go to state 23
     tipo                           shift and go to state 10
     var                            shift and go to state 11
     if_condicion                   shift and go to state 12
     do_condicion                   shift and go to state 13
-    while_condition                shift and go to state 14
+    while_condicion                shift and go to state 14
 
 state 9
 
-    (3) declaracionLista -> declaration .
+    (3) declaracionLista -> declaracion .
 
-    RBLOCK          reduce using rule 3 (declaracionLista -> declaration .)
-    ID              reduce using rule 3 (declaracionLista -> declaration .)
-    VAR             reduce using rule 3 (declaracionLista -> declaration .)
-    IF              reduce using rule 3 (declaracionLista -> declaration .)
-    NUMERO          reduce using rule 3 (declaracionLista -> declaration .)
-    CADENA          reduce using rule 3 (declaracionLista -> declaration .)
-    DO              reduce using rule 3 (declaracionLista -> declaration .)
-    WHILE           reduce using rule 3 (declaracionLista -> declaration .)
+    RayoR           reduce using rule 3 (declaracionLista -> declaracion .)
+    ID              reduce using rule 3 (declaracionLista -> declaracion .)
+    VAR             reduce using rule 3 (declaracionLista -> declaracion .)
+    IF              reduce using rule 3 (declaracionLista -> declaracion .)
+    Puntos          reduce using rule 3 (declaracionLista -> declaracion .)
+    Texto           reduce using rule 3 (declaracionLista -> declaracion .)
+    DO              reduce using rule 3 (declaracionLista -> declaracion .)
+    WHILE           reduce using rule 3 (declaracionLista -> declaracion .)
 
 
 state 10
 
-    (4) declaration -> tipo . ID PUNTOCOMA
-    (6) declaration -> tipo . ID IGUAL var PUNTOCOMA
-    (11) declaration -> tipo . ID IGUAL expression PUNTOCOMA
-    (13) declaration -> tipo . ID IGUAL expression_avanced PUNTOCOMA
+    (4) declaracion -> tipo . ID HuevoBirdo
+    (6) declaracion -> tipo . ID Toad var HuevoBirdo
+    (11) declaracion -> tipo . ID Toad expresionKart HuevoBirdo
+    (13) declaracion -> tipo . ID Toad expresionKart_avanced HuevoBirdo
 
     ID              shift and go to state 24
 
 
 state 11
 
-    (8) declaration -> var . PUNTOCOMA
+    (8) declaracion -> var . HuevoBirdo
 
-    PUNTOCOMA       shift and go to state 25
+    HuevoBirdo      shift and go to state 25
 
 
 state 12
 
-    (7) declaration -> if_condicion .
+    (7) declaracion -> if_condicion .
 
-    RBLOCK          reduce using rule 7 (declaration -> if_condicion .)
-    ID              reduce using rule 7 (declaration -> if_condicion .)
-    VAR             reduce using rule 7 (declaration -> if_condicion .)
-    IF              reduce using rule 7 (declaration -> if_condicion .)
-    NUMERO          reduce using rule 7 (declaration -> if_condicion .)
-    CADENA          reduce using rule 7 (declaration -> if_condicion .)
-    DO              reduce using rule 7 (declaration -> if_condicion .)
-    WHILE           reduce using rule 7 (declaration -> if_condicion .)
+    RayoR           reduce using rule 7 (declaracion -> if_condicion .)
+    ID              reduce using rule 7 (declaracion -> if_condicion .)
+    VAR             reduce using rule 7 (declaracion -> if_condicion .)
+    IF              reduce using rule 7 (declaracion -> if_condicion .)
+    Puntos          reduce using rule 7 (declaracion -> if_condicion .)
+    Texto           reduce using rule 7 (declaracion -> if_condicion .)
+    DO              reduce using rule 7 (declaracion -> if_condicion .)
+    WHILE           reduce using rule 7 (declaracion -> if_condicion .)
 
 
 state 13
 
-    (9) declaration -> do_condicion .
+    (9) declaracion -> do_condicion .
 
-    RBLOCK          reduce using rule 9 (declaration -> do_condicion .)
-    ID              reduce using rule 9 (declaration -> do_condicion .)
-    VAR             reduce using rule 9 (declaration -> do_condicion .)
-    IF              reduce using rule 9 (declaration -> do_condicion .)
-    NUMERO          reduce using rule 9 (declaration -> do_condicion .)
-    CADENA          reduce using rule 9 (declaration -> do_condicion .)
-    DO              reduce using rule 9 (declaration -> do_condicion .)
-    WHILE           reduce using rule 9 (declaration -> do_condicion .)
+    RayoR           reduce using rule 9 (declaracion -> do_condicion .)
+    ID              reduce using rule 9 (declaracion -> do_condicion .)
+    VAR             reduce using rule 9 (declaracion -> do_condicion .)
+    IF              reduce using rule 9 (declaracion -> do_condicion .)
+    Puntos          reduce using rule 9 (declaracion -> do_condicion .)
+    Texto           reduce using rule 9 (declaracion -> do_condicion .)
+    DO              reduce using rule 9 (declaracion -> do_condicion .)
+    WHILE           reduce using rule 9 (declaracion -> do_condicion .)
 
 
 state 14
 
-    (10) declaration -> while_condition .
+    (10) declaracion -> while_condicion .
 
-    RBLOCK          reduce using rule 10 (declaration -> while_condition .)
-    ID              reduce using rule 10 (declaration -> while_condition .)
-    VAR             reduce using rule 10 (declaration -> while_condition .)
-    IF              reduce using rule 10 (declaration -> while_condition .)
-    NUMERO          reduce using rule 10 (declaration -> while_condition .)
-    CADENA          reduce using rule 10 (declaration -> while_condition .)
-    DO              reduce using rule 10 (declaration -> while_condition .)
-    WHILE           reduce using rule 10 (declaration -> while_condition .)
+    RayoR           reduce using rule 10 (declaracion -> while_condicion .)
+    ID              reduce using rule 10 (declaracion -> while_condicion .)
+    VAR             reduce using rule 10 (declaracion -> while_condicion .)
+    IF              reduce using rule 10 (declaracion -> while_condicion .)
+    Puntos          reduce using rule 10 (declaracion -> while_condicion .)
+    Texto           reduce using rule 10 (declaracion -> while_condicion .)
+    DO              reduce using rule 10 (declaracion -> while_condicion .)
+    WHILE           reduce using rule 10 (declaracion -> while_condicion .)
 
 
 state 15
@@ -361,1375 +359,1365 @@ state 15
 
 state 16
 
-    (28) if_condicion -> IF . LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> IF . LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
+    (28) if_condicion -> IF . MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+    (29) if_condicion -> IF . MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
 
-    LPAREN          shift and go to state 26
+    MonedaO         shift and go to state 26
 
 
 state 17
 
-    (35) var -> NUMERO .
+    (35) var -> Puntos .
 
-    PUNTOCOMA       reduce using rule 35 (var -> NUMERO .)
-    MAS             reduce using rule 35 (var -> NUMERO .)
-    MENOS           reduce using rule 35 (var -> NUMERO .)
-    MULT            reduce using rule 35 (var -> NUMERO .)
-    DIVIDIR         reduce using rule 35 (var -> NUMERO .)
-    IGUALXDOS       reduce using rule 35 (var -> NUMERO .)
-    MENOR           reduce using rule 35 (var -> NUMERO .)
-    MAYOR           reduce using rule 35 (var -> NUMERO .)
-    MAYORIGUALQ     reduce using rule 35 (var -> NUMERO .)
-    MENORIGUALQ     reduce using rule 35 (var -> NUMERO .)
-    RPAREN          reduce using rule 35 (var -> NUMERO .)
+    HuevoBirdo      reduce using rule 35 (var -> Puntos .)
+    Mario           reduce using rule 35 (var -> Puntos .)
+    Luigi           reduce using rule 35 (var -> Puntos .)
+    Koopa           reduce using rule 35 (var -> Puntos .)
+    Waluigi         reduce using rule 35 (var -> Puntos .)
+    MonedaO         reduce using rule 35 (var -> Puntos .)
+    Furor           reduce using rule 35 (var -> Puntos .)
+    Peach           reduce using rule 35 (var -> Puntos .)
+    Daysi           reduce using rule 35 (var -> Puntos .)
+    DonkeyKong      reduce using rule 35 (var -> Puntos .)
+    DiddyKong       reduce using rule 35 (var -> Puntos .)
+    MonedaR         reduce using rule 35 (var -> Puntos .)
 
 
 state 18
 
-    (36) var -> CADENA .
+    (36) var -> Texto .
 
-    PUNTOCOMA       reduce using rule 36 (var -> CADENA .)
-    MAS             reduce using rule 36 (var -> CADENA .)
-    MENOS           reduce using rule 36 (var -> CADENA .)
-    MULT            reduce using rule 36 (var -> CADENA .)
-    DIVIDIR         reduce using rule 36 (var -> CADENA .)
-    IGUALXDOS       reduce using rule 36 (var -> CADENA .)
-    MENOR           reduce using rule 36 (var -> CADENA .)
-    MAYOR           reduce using rule 36 (var -> CADENA .)
-    MAYORIGUALQ     reduce using rule 36 (var -> CADENA .)
-    MENORIGUALQ     reduce using rule 36 (var -> CADENA .)
-    RPAREN          reduce using rule 36 (var -> CADENA .)
+    HuevoBirdo      reduce using rule 36 (var -> Texto .)
+    Mario           reduce using rule 36 (var -> Texto .)
+    Luigi           reduce using rule 36 (var -> Texto .)
+    Koopa           reduce using rule 36 (var -> Texto .)
+    Waluigi         reduce using rule 36 (var -> Texto .)
+    MonedaO         reduce using rule 36 (var -> Texto .)
+    Furor           reduce using rule 36 (var -> Texto .)
+    Peach           reduce using rule 36 (var -> Texto .)
+    Daysi           reduce using rule 36 (var -> Texto .)
+    DonkeyKong      reduce using rule 36 (var -> Texto .)
+    DiddyKong       reduce using rule 36 (var -> Texto .)
+    MonedaR         reduce using rule 36 (var -> Texto .)
 
 
 state 19
 
-    (30) do_condicion -> DO . LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN
+    (30) do_condicion -> DO . RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR
 
-    LBLOCK          shift and go to state 27
+    RayoL           shift and go to state 27
 
 
 state 20
 
-    (32) while_condition -> WHILE . LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
+    (32) while_condicion -> WHILE . MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
 
-    LPAREN          shift and go to state 28
+    MonedaO         shift and go to state 28
 
 
 state 21
 
-    (5) declaration -> ID IGUAL . var PUNTOCOMA
-    (12) declaration -> ID IGUAL . expression PUNTOCOMA
-    (14) declaration -> ID IGUAL . expression_avanced PUNTOCOMA
+    (5) declaracion -> ID Toad . var HuevoBirdo
+    (12) declaracion -> ID Toad . expresionKart HuevoBirdo
+    (14) declaracion -> ID Toad . expresionKart_avanced HuevoBirdo
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-    (15) expression -> . var MAS var
-    (16) expression -> . var MENOS var
-    (17) expression -> . var MULT var
-    (18) expression -> . var DIVIDIR var
-    (19) expression_avanced -> . var MAS LPAREN expression RPAREN
-    (20) expression_avanced -> . var MENOS LPAREN expression RPAREN
-    (21) expression_avanced -> . var MULT LPAREN expression RPAREN
-    (22) expression_avanced -> . var DIVIDIR LPAREN expression RPAREN
+    (35) var -> . Puntos
+    (36) var -> . Texto
+    (15) expresionKart -> . var Mario var
+    (16) expresionKart -> . var Luigi var
+    (17) expresionKart -> . var Koopa var
+    (18) expresionKart -> . var Waluigi var
+    (19) expresionKart_avanced -> . var Mario MonedaO expresionKart MonedaR
+    (20) expresionKart_avanced -> . var Luigi MonedaO expresionKart MonedaR
+    (21) expresionKart_avanced -> . var Koopa MonedaO expresionKart MonedaR
+    (22) expresionKart_avanced -> . var MonedaO expresionKart MonedaR
 
     ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
     var                            shift and go to state 30
-    expression                     shift and go to state 31
-    expression_avanced             shift and go to state 32
+    expresionKart                  shift and go to state 31
+    expresionKart_avanced          shift and go to state 32
 
 state 22
 
-    (1) programa -> FUNCION ID LPAREN RPAREN LBLOCK declaracionLista RBLOCK .
+    (1) programa -> KART ID MonedaO MonedaR RayoL declaracionLista RayoR .
 
-    $end            reduce using rule 1 (programa -> FUNCION ID LPAREN RPAREN LBLOCK declaracionLista RBLOCK .)
+    $end            reduce using rule 1 (programa -> KART ID MonedaO MonedaR RayoL declaracionLista RayoR .)
 
 
 state 23
 
-    (2) declaracionLista -> declaracionLista declaration .
+    (2) declaracionLista -> declaracionLista declaracion .
 
-    RBLOCK          reduce using rule 2 (declaracionLista -> declaracionLista declaration .)
-    ID              reduce using rule 2 (declaracionLista -> declaracionLista declaration .)
-    VAR             reduce using rule 2 (declaracionLista -> declaracionLista declaration .)
-    IF              reduce using rule 2 (declaracionLista -> declaracionLista declaration .)
-    NUMERO          reduce using rule 2 (declaracionLista -> declaracionLista declaration .)
-    CADENA          reduce using rule 2 (declaracionLista -> declaracionLista declaration .)
-    DO              reduce using rule 2 (declaracionLista -> declaracionLista declaration .)
-    WHILE           reduce using rule 2 (declaracionLista -> declaracionLista declaration .)
+    RayoR           reduce using rule 2 (declaracionLista -> declaracionLista declaracion .)
+    ID              reduce using rule 2 (declaracionLista -> declaracionLista declaracion .)
+    VAR             reduce using rule 2 (declaracionLista -> declaracionLista declaracion .)
+    IF              reduce using rule 2 (declaracionLista -> declaracionLista declaracion .)
+    Puntos          reduce using rule 2 (declaracionLista -> declaracionLista declaracion .)
+    Texto           reduce using rule 2 (declaracionLista -> declaracionLista declaracion .)
+    DO              reduce using rule 2 (declaracionLista -> declaracionLista declaracion .)
+    WHILE           reduce using rule 2 (declaracionLista -> declaracionLista declaracion .)
 
 
 state 24
 
-    (4) declaration -> tipo ID . PUNTOCOMA
-    (6) declaration -> tipo ID . IGUAL var PUNTOCOMA
-    (11) declaration -> tipo ID . IGUAL expression PUNTOCOMA
-    (13) declaration -> tipo ID . IGUAL expression_avanced PUNTOCOMA
+    (4) declaracion -> tipo ID . HuevoBirdo
+    (6) declaracion -> tipo ID . Toad var HuevoBirdo
+    (11) declaracion -> tipo ID . Toad expresionKart HuevoBirdo
+    (13) declaracion -> tipo ID . Toad expresionKart_avanced HuevoBirdo
 
-    PUNTOCOMA       shift and go to state 33
-    IGUAL           shift and go to state 34
+    HuevoBirdo      shift and go to state 33
+    Toad            shift and go to state 34
 
 
 state 25
 
-    (8) declaration -> var PUNTOCOMA .
+    (8) declaracion -> var HuevoBirdo .
 
-    RBLOCK          reduce using rule 8 (declaration -> var PUNTOCOMA .)
-    ID              reduce using rule 8 (declaration -> var PUNTOCOMA .)
-    VAR             reduce using rule 8 (declaration -> var PUNTOCOMA .)
-    IF              reduce using rule 8 (declaration -> var PUNTOCOMA .)
-    NUMERO          reduce using rule 8 (declaration -> var PUNTOCOMA .)
-    CADENA          reduce using rule 8 (declaration -> var PUNTOCOMA .)
-    DO              reduce using rule 8 (declaration -> var PUNTOCOMA .)
-    WHILE           reduce using rule 8 (declaration -> var PUNTOCOMA .)
+    RayoR           reduce using rule 8 (declaracion -> var HuevoBirdo .)
+    ID              reduce using rule 8 (declaracion -> var HuevoBirdo .)
+    VAR             reduce using rule 8 (declaracion -> var HuevoBirdo .)
+    IF              reduce using rule 8 (declaracion -> var HuevoBirdo .)
+    Puntos          reduce using rule 8 (declaracion -> var HuevoBirdo .)
+    Texto           reduce using rule 8 (declaracion -> var HuevoBirdo .)
+    DO              reduce using rule 8 (declaracion -> var HuevoBirdo .)
+    WHILE           reduce using rule 8 (declaracion -> var HuevoBirdo .)
 
 
 state 26
 
-    (28) if_condicion -> IF LPAREN . expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> IF LPAREN . expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
-    (23) expression_bool -> . var IGUALXDOS var
-    (24) expression_bool -> . var MENOR var
-    (25) expression_bool -> . var MAYOR var
-    (26) expression_bool -> . var MAYORIGUALQ var
-    (27) expression_bool -> . var MENORIGUALQ var
+    (28) if_condicion -> IF MonedaO . expresionKart_bool MonedaR RayoL declaracionLista RayoR
+    (29) if_condicion -> IF MonedaO . expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
+    (23) expresionKart_bool -> . var Furor var
+    (24) expresionKart_bool -> . var Peach var
+    (25) expresionKart_bool -> . var Daysi var
+    (26) expresionKart_bool -> . var DonkeyKong var
+    (27) expresionKart_bool -> . var DiddyKong var
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
     ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
-    expression_bool                shift and go to state 35
+    expresionKart_bool             shift and go to state 35
     var                            shift and go to state 36
 
 state 27
 
-    (30) do_condicion -> DO LBLOCK . declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN
-    (2) declaracionLista -> . declaracionLista declaration
-    (3) declaracionLista -> . declaration
-    (4) declaration -> . tipo ID PUNTOCOMA
-    (5) declaration -> . ID IGUAL var PUNTOCOMA
-    (6) declaration -> . tipo ID IGUAL var PUNTOCOMA
-    (7) declaration -> . if_condicion
-    (8) declaration -> . var PUNTOCOMA
-    (9) declaration -> . do_condicion
-    (10) declaration -> . while_condition
-    (11) declaration -> . tipo ID IGUAL expression PUNTOCOMA
-    (12) declaration -> . ID IGUAL expression PUNTOCOMA
-    (13) declaration -> . tipo ID IGUAL expression_avanced PUNTOCOMA
-    (14) declaration -> . ID IGUAL expression_avanced PUNTOCOMA
+    (30) do_condicion -> DO RayoL . declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR
+    (2) declaracionLista -> . declaracionLista declaracion
+    (3) declaracionLista -> . declaracion
+    (4) declaracion -> . tipo ID HuevoBirdo
+    (5) declaracion -> . ID Toad var HuevoBirdo
+    (6) declaracion -> . tipo ID Toad var HuevoBirdo
+    (7) declaracion -> . if_condicion
+    (8) declaracion -> . var HuevoBirdo
+    (9) declaracion -> . do_condicion
+    (10) declaracion -> . while_condicion
+    (11) declaracion -> . tipo ID Toad expresionKart HuevoBirdo
+    (12) declaracion -> . ID Toad expresionKart HuevoBirdo
+    (13) declaracion -> . tipo ID Toad expresionKart_avanced HuevoBirdo
+    (14) declaracion -> . ID Toad expresionKart_avanced HuevoBirdo
     (33) tipo -> . VAR
-    (28) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
+    (28) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+    (29) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-    (30) do_condicion -> . DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN
-    (31) while_condition -> .
-    (32) while_condition -> . WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
+    (35) var -> . Puntos
+    (36) var -> . Texto
+    (30) do_condicion -> . DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR
+    (31) while_condicion -> .
+    (32) while_condicion -> . WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
 
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for VAR resolved as shift
   ! shift/reduce conflict for IF resolved as shift
-  ! shift/reduce conflict for NUMERO resolved as shift
-  ! shift/reduce conflict for CADENA resolved as shift
+  ! shift/reduce conflict for Puntos resolved as shift
+  ! shift/reduce conflict for Texto resolved as shift
   ! shift/reduce conflict for DO resolved as shift
   ! shift/reduce conflict for WHILE resolved as shift
     ID              shift and go to state 7
     VAR             shift and go to state 15
     IF              shift and go to state 16
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
     DO              shift and go to state 19
-    RBLOCK          reduce using rule 31 (while_condition -> .)
+    RayoR           reduce using rule 31 (while_condicion -> .)
     WHILE           shift and go to state 20
 
-  ! ID              [ reduce using rule 31 (while_condition -> .) ]
-  ! VAR             [ reduce using rule 31 (while_condition -> .) ]
-  ! IF              [ reduce using rule 31 (while_condition -> .) ]
-  ! NUMERO          [ reduce using rule 31 (while_condition -> .) ]
-  ! CADENA          [ reduce using rule 31 (while_condition -> .) ]
-  ! DO              [ reduce using rule 31 (while_condition -> .) ]
-  ! WHILE           [ reduce using rule 31 (while_condition -> .) ]
+  ! ID              [ reduce using rule 31 (while_condicion -> .) ]
+  ! VAR             [ reduce using rule 31 (while_condicion -> .) ]
+  ! IF              [ reduce using rule 31 (while_condicion -> .) ]
+  ! Puntos          [ reduce using rule 31 (while_condicion -> .) ]
+  ! Texto           [ reduce using rule 31 (while_condicion -> .) ]
+  ! DO              [ reduce using rule 31 (while_condicion -> .) ]
+  ! WHILE           [ reduce using rule 31 (while_condicion -> .) ]
 
     declaracionLista               shift and go to state 37
-    declaration                    shift and go to state 9
+    declaracion                    shift and go to state 9
     tipo                           shift and go to state 10
     var                            shift and go to state 11
     if_condicion                   shift and go to state 12
     do_condicion                   shift and go to state 13
-    while_condition                shift and go to state 14
+    while_condicion                shift and go to state 14
 
 state 28
 
-    (32) while_condition -> WHILE LPAREN . expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-    (23) expression_bool -> . var IGUALXDOS var
-    (24) expression_bool -> . var MENOR var
-    (25) expression_bool -> . var MAYOR var
-    (26) expression_bool -> . var MAYORIGUALQ var
-    (27) expression_bool -> . var MENORIGUALQ var
+    (32) while_condicion -> WHILE MonedaO . expresionKart_bool MonedaR RayoL declaracionLista RayoR
+    (23) expresionKart_bool -> . var Furor var
+    (24) expresionKart_bool -> . var Peach var
+    (25) expresionKart_bool -> . var Daysi var
+    (26) expresionKart_bool -> . var DonkeyKong var
+    (27) expresionKart_bool -> . var DiddyKong var
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
     ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
-    expression_bool                shift and go to state 38
+    expresionKart_bool             shift and go to state 38
     var                            shift and go to state 36
 
 state 29
 
     (34) var -> ID .
 
-    PUNTOCOMA       reduce using rule 34 (var -> ID .)
-    MAS             reduce using rule 34 (var -> ID .)
-    MENOS           reduce using rule 34 (var -> ID .)
-    MULT            reduce using rule 34 (var -> ID .)
-    DIVIDIR         reduce using rule 34 (var -> ID .)
-    IGUALXDOS       reduce using rule 34 (var -> ID .)
-    MENOR           reduce using rule 34 (var -> ID .)
-    MAYOR           reduce using rule 34 (var -> ID .)
-    MAYORIGUALQ     reduce using rule 34 (var -> ID .)
-    MENORIGUALQ     reduce using rule 34 (var -> ID .)
-    RPAREN          reduce using rule 34 (var -> ID .)
+    HuevoBirdo      reduce using rule 34 (var -> ID .)
+    Mario           reduce using rule 34 (var -> ID .)
+    Luigi           reduce using rule 34 (var -> ID .)
+    Koopa           reduce using rule 34 (var -> ID .)
+    Waluigi         reduce using rule 34 (var -> ID .)
+    MonedaO         reduce using rule 34 (var -> ID .)
+    Furor           reduce using rule 34 (var -> ID .)
+    Peach           reduce using rule 34 (var -> ID .)
+    Daysi           reduce using rule 34 (var -> ID .)
+    DonkeyKong      reduce using rule 34 (var -> ID .)
+    DiddyKong       reduce using rule 34 (var -> ID .)
+    MonedaR         reduce using rule 34 (var -> ID .)
 
 
 state 30
 
-    (5) declaration -> ID IGUAL var . PUNTOCOMA
-    (15) expression -> var . MAS var
-    (16) expression -> var . MENOS var
-    (17) expression -> var . MULT var
-    (18) expression -> var . DIVIDIR var
-    (19) expression_avanced -> var . MAS LPAREN expression RPAREN
-    (20) expression_avanced -> var . MENOS LPAREN expression RPAREN
-    (21) expression_avanced -> var . MULT LPAREN expression RPAREN
-    (22) expression_avanced -> var . DIVIDIR LPAREN expression RPAREN
+    (5) declaracion -> ID Toad var . HuevoBirdo
+    (15) expresionKart -> var . Mario var
+    (16) expresionKart -> var . Luigi var
+    (17) expresionKart -> var . Koopa var
+    (18) expresionKart -> var . Waluigi var
+    (19) expresionKart_avanced -> var . Mario MonedaO expresionKart MonedaR
+    (20) expresionKart_avanced -> var . Luigi MonedaO expresionKart MonedaR
+    (21) expresionKart_avanced -> var . Koopa MonedaO expresionKart MonedaR
+    (22) expresionKart_avanced -> var . MonedaO expresionKart MonedaR
 
-    PUNTOCOMA       shift and go to state 39
-    MAS             shift and go to state 40
-    MENOS           shift and go to state 41
-    MULT            shift and go to state 42
-    DIVIDIR         shift and go to state 43
+    HuevoBirdo      shift and go to state 39
+    Mario           shift and go to state 40
+    Luigi           shift and go to state 41
+    Koopa           shift and go to state 42
+    Waluigi         shift and go to state 43
+    MonedaO         shift and go to state 44
 
 
 state 31
 
-    (12) declaration -> ID IGUAL expression . PUNTOCOMA
+    (12) declaracion -> ID Toad expresionKart . HuevoBirdo
 
-    PUNTOCOMA       shift and go to state 44
+    HuevoBirdo      shift and go to state 45
 
 
 state 32
 
-    (14) declaration -> ID IGUAL expression_avanced . PUNTOCOMA
+    (14) declaracion -> ID Toad expresionKart_avanced . HuevoBirdo
 
-    PUNTOCOMA       shift and go to state 45
+    HuevoBirdo      shift and go to state 46
 
 
 state 33
 
-    (4) declaration -> tipo ID PUNTOCOMA .
+    (4) declaracion -> tipo ID HuevoBirdo .
 
-    RBLOCK          reduce using rule 4 (declaration -> tipo ID PUNTOCOMA .)
-    ID              reduce using rule 4 (declaration -> tipo ID PUNTOCOMA .)
-    VAR             reduce using rule 4 (declaration -> tipo ID PUNTOCOMA .)
-    IF              reduce using rule 4 (declaration -> tipo ID PUNTOCOMA .)
-    NUMERO          reduce using rule 4 (declaration -> tipo ID PUNTOCOMA .)
-    CADENA          reduce using rule 4 (declaration -> tipo ID PUNTOCOMA .)
-    DO              reduce using rule 4 (declaration -> tipo ID PUNTOCOMA .)
-    WHILE           reduce using rule 4 (declaration -> tipo ID PUNTOCOMA .)
+    RayoR           reduce using rule 4 (declaracion -> tipo ID HuevoBirdo .)
+    ID              reduce using rule 4 (declaracion -> tipo ID HuevoBirdo .)
+    VAR             reduce using rule 4 (declaracion -> tipo ID HuevoBirdo .)
+    IF              reduce using rule 4 (declaracion -> tipo ID HuevoBirdo .)
+    Puntos          reduce using rule 4 (declaracion -> tipo ID HuevoBirdo .)
+    Texto           reduce using rule 4 (declaracion -> tipo ID HuevoBirdo .)
+    DO              reduce using rule 4 (declaracion -> tipo ID HuevoBirdo .)
+    WHILE           reduce using rule 4 (declaracion -> tipo ID HuevoBirdo .)
 
 
 state 34
 
-    (6) declaration -> tipo ID IGUAL . var PUNTOCOMA
-    (11) declaration -> tipo ID IGUAL . expression PUNTOCOMA
-    (13) declaration -> tipo ID IGUAL . expression_avanced PUNTOCOMA
+    (6) declaracion -> tipo ID Toad . var HuevoBirdo
+    (11) declaracion -> tipo ID Toad . expresionKart HuevoBirdo
+    (13) declaracion -> tipo ID Toad . expresionKart_avanced HuevoBirdo
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-    (15) expression -> . var MAS var
-    (16) expression -> . var MENOS var
-    (17) expression -> . var MULT var
-    (18) expression -> . var DIVIDIR var
-    (19) expression_avanced -> . var MAS LPAREN expression RPAREN
-    (20) expression_avanced -> . var MENOS LPAREN expression RPAREN
-    (21) expression_avanced -> . var MULT LPAREN expression RPAREN
-    (22) expression_avanced -> . var DIVIDIR LPAREN expression RPAREN
+    (35) var -> . Puntos
+    (36) var -> . Texto
+    (15) expresionKart -> . var Mario var
+    (16) expresionKart -> . var Luigi var
+    (17) expresionKart -> . var Koopa var
+    (18) expresionKart -> . var Waluigi var
+    (19) expresionKart_avanced -> . var Mario MonedaO expresionKart MonedaR
+    (20) expresionKart_avanced -> . var Luigi MonedaO expresionKart MonedaR
+    (21) expresionKart_avanced -> . var Koopa MonedaO expresionKart MonedaR
+    (22) expresionKart_avanced -> . var MonedaO expresionKart MonedaR
 
     ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
-    var                            shift and go to state 46
-    expression                     shift and go to state 47
-    expression_avanced             shift and go to state 48
+    var                            shift and go to state 47
+    expresionKart                  shift and go to state 48
+    expresionKart_avanced          shift and go to state 49
 
 state 35
 
-    (28) if_condicion -> IF LPAREN expression_bool . RPAREN LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> IF LPAREN expression_bool . RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
+    (28) if_condicion -> IF MonedaO expresionKart_bool . MonedaR RayoL declaracionLista RayoR
+    (29) if_condicion -> IF MonedaO expresionKart_bool . MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
 
-    RPAREN          shift and go to state 49
+    MonedaR         shift and go to state 50
 
 
 state 36
 
-    (23) expression_bool -> var . IGUALXDOS var
-    (24) expression_bool -> var . MENOR var
-    (25) expression_bool -> var . MAYOR var
-    (26) expression_bool -> var . MAYORIGUALQ var
-    (27) expression_bool -> var . MENORIGUALQ var
+    (23) expresionKart_bool -> var . Furor var
+    (24) expresionKart_bool -> var . Peach var
+    (25) expresionKart_bool -> var . Daysi var
+    (26) expresionKart_bool -> var . DonkeyKong var
+    (27) expresionKart_bool -> var . DiddyKong var
 
-    IGUALXDOS       shift and go to state 50
-    MENOR           shift and go to state 51
-    MAYOR           shift and go to state 52
-    MAYORIGUALQ     shift and go to state 53
-    MENORIGUALQ     shift and go to state 54
+    Furor           shift and go to state 51
+    Peach           shift and go to state 52
+    Daysi           shift and go to state 53
+    DonkeyKong      shift and go to state 54
+    DiddyKong       shift and go to state 55
 
 
 state 37
 
-    (30) do_condicion -> DO LBLOCK declaracionLista . RBLOCK WHILE LPAREN expression_bool RPAREN
-    (2) declaracionLista -> declaracionLista . declaration
-    (4) declaration -> . tipo ID PUNTOCOMA
-    (5) declaration -> . ID IGUAL var PUNTOCOMA
-    (6) declaration -> . tipo ID IGUAL var PUNTOCOMA
-    (7) declaration -> . if_condicion
-    (8) declaration -> . var PUNTOCOMA
-    (9) declaration -> . do_condicion
-    (10) declaration -> . while_condition
-    (11) declaration -> . tipo ID IGUAL expression PUNTOCOMA
-    (12) declaration -> . ID IGUAL expression PUNTOCOMA
-    (13) declaration -> . tipo ID IGUAL expression_avanced PUNTOCOMA
-    (14) declaration -> . ID IGUAL expression_avanced PUNTOCOMA
+    (30) do_condicion -> DO RayoL declaracionLista . RayoR WHILE MonedaO expresionKart_bool MonedaR
+    (2) declaracionLista -> declaracionLista . declaracion
+    (4) declaracion -> . tipo ID HuevoBirdo
+    (5) declaracion -> . ID Toad var HuevoBirdo
+    (6) declaracion -> . tipo ID Toad var HuevoBirdo
+    (7) declaracion -> . if_condicion
+    (8) declaracion -> . var HuevoBirdo
+    (9) declaracion -> . do_condicion
+    (10) declaracion -> . while_condicion
+    (11) declaracion -> . tipo ID Toad expresionKart HuevoBirdo
+    (12) declaracion -> . ID Toad expresionKart HuevoBirdo
+    (13) declaracion -> . tipo ID Toad expresionKart_avanced HuevoBirdo
+    (14) declaracion -> . ID Toad expresionKart_avanced HuevoBirdo
     (33) tipo -> . VAR
-    (28) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
+    (28) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+    (29) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-    (30) do_condicion -> . DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN
-    (31) while_condition -> .
-    (32) while_condition -> . WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
+    (35) var -> . Puntos
+    (36) var -> . Texto
+    (30) do_condicion -> . DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR
+    (31) while_condicion -> .
+    (32) while_condicion -> . WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
 
-  ! shift/reduce conflict for RBLOCK resolved as shift
+  ! shift/reduce conflict for RayoR resolved as shift
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for VAR resolved as shift
   ! shift/reduce conflict for IF resolved as shift
-  ! shift/reduce conflict for NUMERO resolved as shift
-  ! shift/reduce conflict for CADENA resolved as shift
+  ! shift/reduce conflict for Puntos resolved as shift
+  ! shift/reduce conflict for Texto resolved as shift
   ! shift/reduce conflict for DO resolved as shift
   ! shift/reduce conflict for WHILE resolved as shift
-    RBLOCK          shift and go to state 55
+    RayoR           shift and go to state 56
     ID              shift and go to state 7
     VAR             shift and go to state 15
     IF              shift and go to state 16
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
     DO              shift and go to state 19
     WHILE           shift and go to state 20
 
-  ! RBLOCK          [ reduce using rule 31 (while_condition -> .) ]
-  ! ID              [ reduce using rule 31 (while_condition -> .) ]
-  ! VAR             [ reduce using rule 31 (while_condition -> .) ]
-  ! IF              [ reduce using rule 31 (while_condition -> .) ]
-  ! NUMERO          [ reduce using rule 31 (while_condition -> .) ]
-  ! CADENA          [ reduce using rule 31 (while_condition -> .) ]
-  ! DO              [ reduce using rule 31 (while_condition -> .) ]
-  ! WHILE           [ reduce using rule 31 (while_condition -> .) ]
+  ! RayoR           [ reduce using rule 31 (while_condicion -> .) ]
+  ! ID              [ reduce using rule 31 (while_condicion -> .) ]
+  ! VAR             [ reduce using rule 31 (while_condicion -> .) ]
+  ! IF              [ reduce using rule 31 (while_condicion -> .) ]
+  ! Puntos          [ reduce using rule 31 (while_condicion -> .) ]
+  ! Texto           [ reduce using rule 31 (while_condicion -> .) ]
+  ! DO              [ reduce using rule 31 (while_condicion -> .) ]
+  ! WHILE           [ reduce using rule 31 (while_condicion -> .) ]
 
-    declaration                    shift and go to state 23
+    declaracion                    shift and go to state 23
     tipo                           shift and go to state 10
     var                            shift and go to state 11
     if_condicion                   shift and go to state 12
     do_condicion                   shift and go to state 13
-    while_condition                shift and go to state 14
+    while_condicion                shift and go to state 14
 
 state 38
 
-    (32) while_condition -> WHILE LPAREN expression_bool . RPAREN LBLOCK declaracionLista RBLOCK
+    (32) while_condicion -> WHILE MonedaO expresionKart_bool . MonedaR RayoL declaracionLista RayoR
 
-    RPAREN          shift and go to state 56
+    MonedaR         shift and go to state 57
 
 
 state 39
 
-    (5) declaration -> ID IGUAL var PUNTOCOMA .
+    (5) declaracion -> ID Toad var HuevoBirdo .
 
-    RBLOCK          reduce using rule 5 (declaration -> ID IGUAL var PUNTOCOMA .)
-    ID              reduce using rule 5 (declaration -> ID IGUAL var PUNTOCOMA .)
-    VAR             reduce using rule 5 (declaration -> ID IGUAL var PUNTOCOMA .)
-    IF              reduce using rule 5 (declaration -> ID IGUAL var PUNTOCOMA .)
-    NUMERO          reduce using rule 5 (declaration -> ID IGUAL var PUNTOCOMA .)
-    CADENA          reduce using rule 5 (declaration -> ID IGUAL var PUNTOCOMA .)
-    DO              reduce using rule 5 (declaration -> ID IGUAL var PUNTOCOMA .)
-    WHILE           reduce using rule 5 (declaration -> ID IGUAL var PUNTOCOMA .)
+    RayoR           reduce using rule 5 (declaracion -> ID Toad var HuevoBirdo .)
+    ID              reduce using rule 5 (declaracion -> ID Toad var HuevoBirdo .)
+    VAR             reduce using rule 5 (declaracion -> ID Toad var HuevoBirdo .)
+    IF              reduce using rule 5 (declaracion -> ID Toad var HuevoBirdo .)
+    Puntos          reduce using rule 5 (declaracion -> ID Toad var HuevoBirdo .)
+    Texto           reduce using rule 5 (declaracion -> ID Toad var HuevoBirdo .)
+    DO              reduce using rule 5 (declaracion -> ID Toad var HuevoBirdo .)
+    WHILE           reduce using rule 5 (declaracion -> ID Toad var HuevoBirdo .)
 
 
 state 40
 
-    (15) expression -> var MAS . var
-    (19) expression_avanced -> var MAS . LPAREN expression RPAREN
+    (15) expresionKart -> var Mario . var
+    (19) expresionKart_avanced -> var Mario . MonedaO expresionKart MonedaR
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
-    LPAREN          shift and go to state 58
+    MonedaO         shift and go to state 59
     ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
-    var                            shift and go to state 57
+    var                            shift and go to state 58
 
 state 41
 
-    (16) expression -> var MENOS . var
-    (20) expression_avanced -> var MENOS . LPAREN expression RPAREN
+    (16) expresionKart -> var Luigi . var
+    (20) expresionKart_avanced -> var Luigi . MonedaO expresionKart MonedaR
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
-    LPAREN          shift and go to state 60
+    MonedaO         shift and go to state 61
     ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
-    var                            shift and go to state 59
+    var                            shift and go to state 60
 
 state 42
 
-    (17) expression -> var MULT . var
-    (21) expression_avanced -> var MULT . LPAREN expression RPAREN
+    (17) expresionKart -> var Koopa . var
+    (21) expresionKart_avanced -> var Koopa . MonedaO expresionKart MonedaR
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
-    LPAREN          shift and go to state 62
+    MonedaO         shift and go to state 63
     ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
-    var                            shift and go to state 61
+    var                            shift and go to state 62
 
 state 43
 
-    (18) expression -> var DIVIDIR . var
-    (22) expression_avanced -> var DIVIDIR . LPAREN expression RPAREN
+    (18) expresionKart -> var Waluigi . var
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
-    LPAREN          shift and go to state 64
     ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
-    var                            shift and go to state 63
+    var                            shift and go to state 64
 
 state 44
 
-    (12) declaration -> ID IGUAL expression PUNTOCOMA .
+    (22) expresionKart_avanced -> var MonedaO . expresionKart MonedaR
+    (15) expresionKart -> . var Mario var
+    (16) expresionKart -> . var Luigi var
+    (17) expresionKart -> . var Koopa var
+    (18) expresionKart -> . var Waluigi var
+    (34) var -> . ID
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
-    RBLOCK          reduce using rule 12 (declaration -> ID IGUAL expression PUNTOCOMA .)
-    ID              reduce using rule 12 (declaration -> ID IGUAL expression PUNTOCOMA .)
-    VAR             reduce using rule 12 (declaration -> ID IGUAL expression PUNTOCOMA .)
-    IF              reduce using rule 12 (declaration -> ID IGUAL expression PUNTOCOMA .)
-    NUMERO          reduce using rule 12 (declaration -> ID IGUAL expression PUNTOCOMA .)
-    CADENA          reduce using rule 12 (declaration -> ID IGUAL expression PUNTOCOMA .)
-    DO              reduce using rule 12 (declaration -> ID IGUAL expression PUNTOCOMA .)
-    WHILE           reduce using rule 12 (declaration -> ID IGUAL expression PUNTOCOMA .)
+    ID              shift and go to state 29
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
+    var                            shift and go to state 65
+    expresionKart                  shift and go to state 66
 
 state 45
 
-    (14) declaration -> ID IGUAL expression_avanced PUNTOCOMA .
+    (12) declaracion -> ID Toad expresionKart HuevoBirdo .
 
-    RBLOCK          reduce using rule 14 (declaration -> ID IGUAL expression_avanced PUNTOCOMA .)
-    ID              reduce using rule 14 (declaration -> ID IGUAL expression_avanced PUNTOCOMA .)
-    VAR             reduce using rule 14 (declaration -> ID IGUAL expression_avanced PUNTOCOMA .)
-    IF              reduce using rule 14 (declaration -> ID IGUAL expression_avanced PUNTOCOMA .)
-    NUMERO          reduce using rule 14 (declaration -> ID IGUAL expression_avanced PUNTOCOMA .)
-    CADENA          reduce using rule 14 (declaration -> ID IGUAL expression_avanced PUNTOCOMA .)
-    DO              reduce using rule 14 (declaration -> ID IGUAL expression_avanced PUNTOCOMA .)
-    WHILE           reduce using rule 14 (declaration -> ID IGUAL expression_avanced PUNTOCOMA .)
+    RayoR           reduce using rule 12 (declaracion -> ID Toad expresionKart HuevoBirdo .)
+    ID              reduce using rule 12 (declaracion -> ID Toad expresionKart HuevoBirdo .)
+    VAR             reduce using rule 12 (declaracion -> ID Toad expresionKart HuevoBirdo .)
+    IF              reduce using rule 12 (declaracion -> ID Toad expresionKart HuevoBirdo .)
+    Puntos          reduce using rule 12 (declaracion -> ID Toad expresionKart HuevoBirdo .)
+    Texto           reduce using rule 12 (declaracion -> ID Toad expresionKart HuevoBirdo .)
+    DO              reduce using rule 12 (declaracion -> ID Toad expresionKart HuevoBirdo .)
+    WHILE           reduce using rule 12 (declaracion -> ID Toad expresionKart HuevoBirdo .)
 
 
 state 46
 
-    (6) declaration -> tipo ID IGUAL var . PUNTOCOMA
-    (15) expression -> var . MAS var
-    (16) expression -> var . MENOS var
-    (17) expression -> var . MULT var
-    (18) expression -> var . DIVIDIR var
-    (19) expression_avanced -> var . MAS LPAREN expression RPAREN
-    (20) expression_avanced -> var . MENOS LPAREN expression RPAREN
-    (21) expression_avanced -> var . MULT LPAREN expression RPAREN
-    (22) expression_avanced -> var . DIVIDIR LPAREN expression RPAREN
+    (14) declaracion -> ID Toad expresionKart_avanced HuevoBirdo .
 
-    PUNTOCOMA       shift and go to state 65
-    MAS             shift and go to state 40
-    MENOS           shift and go to state 41
-    MULT            shift and go to state 42
-    DIVIDIR         shift and go to state 43
+    RayoR           reduce using rule 14 (declaracion -> ID Toad expresionKart_avanced HuevoBirdo .)
+    ID              reduce using rule 14 (declaracion -> ID Toad expresionKart_avanced HuevoBirdo .)
+    VAR             reduce using rule 14 (declaracion -> ID Toad expresionKart_avanced HuevoBirdo .)
+    IF              reduce using rule 14 (declaracion -> ID Toad expresionKart_avanced HuevoBirdo .)
+    Puntos          reduce using rule 14 (declaracion -> ID Toad expresionKart_avanced HuevoBirdo .)
+    Texto           reduce using rule 14 (declaracion -> ID Toad expresionKart_avanced HuevoBirdo .)
+    DO              reduce using rule 14 (declaracion -> ID Toad expresionKart_avanced HuevoBirdo .)
+    WHILE           reduce using rule 14 (declaracion -> ID Toad expresionKart_avanced HuevoBirdo .)
 
 
 state 47
 
-    (11) declaration -> tipo ID IGUAL expression . PUNTOCOMA
+    (6) declaracion -> tipo ID Toad var . HuevoBirdo
+    (15) expresionKart -> var . Mario var
+    (16) expresionKart -> var . Luigi var
+    (17) expresionKart -> var . Koopa var
+    (18) expresionKart -> var . Waluigi var
+    (19) expresionKart_avanced -> var . Mario MonedaO expresionKart MonedaR
+    (20) expresionKart_avanced -> var . Luigi MonedaO expresionKart MonedaR
+    (21) expresionKart_avanced -> var . Koopa MonedaO expresionKart MonedaR
+    (22) expresionKart_avanced -> var . MonedaO expresionKart MonedaR
 
-    PUNTOCOMA       shift and go to state 66
+    HuevoBirdo      shift and go to state 67
+    Mario           shift and go to state 40
+    Luigi           shift and go to state 41
+    Koopa           shift and go to state 42
+    Waluigi         shift and go to state 43
+    MonedaO         shift and go to state 44
 
 
 state 48
 
-    (13) declaration -> tipo ID IGUAL expression_avanced . PUNTOCOMA
+    (11) declaracion -> tipo ID Toad expresionKart . HuevoBirdo
 
-    PUNTOCOMA       shift and go to state 67
+    HuevoBirdo      shift and go to state 68
 
 
 state 49
 
-    (28) if_condicion -> IF LPAREN expression_bool RPAREN . LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> IF LPAREN expression_bool RPAREN . LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
+    (13) declaracion -> tipo ID Toad expresionKart_avanced . HuevoBirdo
 
-    LBLOCK          shift and go to state 68
+    HuevoBirdo      shift and go to state 69
 
 
 state 50
 
-    (23) expression_bool -> var IGUALXDOS . var
-    (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (28) if_condicion -> IF MonedaO expresionKart_bool MonedaR . RayoL declaracionLista RayoR
+    (29) if_condicion -> IF MonedaO expresionKart_bool MonedaR . RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
 
-    ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    RayoL           shift and go to state 70
 
-    var                            shift and go to state 69
 
 state 51
 
-    (24) expression_bool -> var MENOR . var
+    (23) expresionKart_bool -> var Furor . var
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
     ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
-
-    var                            shift and go to state 70
-
-state 52
-
-    (25) expression_bool -> var MAYOR . var
-    (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-
-    ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
     var                            shift and go to state 71
 
-state 53
+state 52
 
-    (26) expression_bool -> var MAYORIGUALQ . var
+    (24) expresionKart_bool -> var Peach . var
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
     ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
     var                            shift and go to state 72
 
-state 54
+state 53
 
-    (27) expression_bool -> var MENORIGUALQ . var
+    (25) expresionKart_bool -> var Daysi . var
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
     ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
     var                            shift and go to state 73
 
+state 54
+
+    (26) expresionKart_bool -> var DonkeyKong . var
+    (34) var -> . ID
+    (35) var -> . Puntos
+    (36) var -> . Texto
+
+    ID              shift and go to state 29
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
+
+    var                            shift and go to state 74
+
 state 55
 
-    (30) do_condicion -> DO LBLOCK declaracionLista RBLOCK . WHILE LPAREN expression_bool RPAREN
+    (27) expresionKart_bool -> var DiddyKong . var
+    (34) var -> . ID
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
-    WHILE           shift and go to state 74
+    ID              shift and go to state 29
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
+    var                            shift and go to state 75
 
 state 56
 
-    (32) while_condition -> WHILE LPAREN expression_bool RPAREN . LBLOCK declaracionLista RBLOCK
+    (30) do_condicion -> DO RayoL declaracionLista RayoR . WHILE MonedaO expresionKart_bool MonedaR
 
-    LBLOCK          shift and go to state 75
+    WHILE           shift and go to state 76
 
 
 state 57
 
-    (15) expression -> var MAS var .
+    (32) while_condicion -> WHILE MonedaO expresionKart_bool MonedaR . RayoL declaracionLista RayoR
 
-    PUNTOCOMA       reduce using rule 15 (expression -> var MAS var .)
-    RPAREN          reduce using rule 15 (expression -> var MAS var .)
+    RayoL           shift and go to state 77
 
 
 state 58
 
-    (19) expression_avanced -> var MAS LPAREN . expression RPAREN
-    (15) expression -> . var MAS var
-    (16) expression -> . var MENOS var
-    (17) expression -> . var MULT var
-    (18) expression -> . var DIVIDIR var
-    (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (15) expresionKart -> var Mario var .
 
-    ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    HuevoBirdo      reduce using rule 15 (expresionKart -> var Mario var .)
+    MonedaR         reduce using rule 15 (expresionKart -> var Mario var .)
 
-    var                            shift and go to state 76
-    expression                     shift and go to state 77
 
 state 59
 
-    (16) expression -> var MENOS var .
+    (19) expresionKart_avanced -> var Mario MonedaO . expresionKart MonedaR
+    (15) expresionKart -> . var Mario var
+    (16) expresionKart -> . var Luigi var
+    (17) expresionKart -> . var Koopa var
+    (18) expresionKart -> . var Waluigi var
+    (34) var -> . ID
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
-    PUNTOCOMA       reduce using rule 16 (expression -> var MENOS var .)
-    RPAREN          reduce using rule 16 (expression -> var MENOS var .)
+    ID              shift and go to state 29
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
+    var                            shift and go to state 65
+    expresionKart                  shift and go to state 78
 
 state 60
 
-    (20) expression_avanced -> var MENOS LPAREN . expression RPAREN
-    (15) expression -> . var MAS var
-    (16) expression -> . var MENOS var
-    (17) expression -> . var MULT var
-    (18) expression -> . var DIVIDIR var
-    (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (16) expresionKart -> var Luigi var .
 
-    ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    HuevoBirdo      reduce using rule 16 (expresionKart -> var Luigi var .)
+    MonedaR         reduce using rule 16 (expresionKart -> var Luigi var .)
 
-    var                            shift and go to state 76
-    expression                     shift and go to state 78
 
 state 61
 
-    (17) expression -> var MULT var .
+    (20) expresionKart_avanced -> var Luigi MonedaO . expresionKart MonedaR
+    (15) expresionKart -> . var Mario var
+    (16) expresionKart -> . var Luigi var
+    (17) expresionKart -> . var Koopa var
+    (18) expresionKart -> . var Waluigi var
+    (34) var -> . ID
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
-    PUNTOCOMA       reduce using rule 17 (expression -> var MULT var .)
-    RPAREN          reduce using rule 17 (expression -> var MULT var .)
+    ID              shift and go to state 29
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
+    var                            shift and go to state 65
+    expresionKart                  shift and go to state 79
 
 state 62
 
-    (21) expression_avanced -> var MULT LPAREN . expression RPAREN
-    (15) expression -> . var MAS var
-    (16) expression -> . var MENOS var
-    (17) expression -> . var MULT var
-    (18) expression -> . var DIVIDIR var
-    (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (17) expresionKart -> var Koopa var .
 
-    ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    HuevoBirdo      reduce using rule 17 (expresionKart -> var Koopa var .)
+    MonedaR         reduce using rule 17 (expresionKart -> var Koopa var .)
 
-    var                            shift and go to state 76
-    expression                     shift and go to state 79
 
 state 63
 
-    (18) expression -> var DIVIDIR var .
+    (21) expresionKart_avanced -> var Koopa MonedaO . expresionKart MonedaR
+    (15) expresionKart -> . var Mario var
+    (16) expresionKart -> . var Luigi var
+    (17) expresionKart -> . var Koopa var
+    (18) expresionKart -> . var Waluigi var
+    (34) var -> . ID
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
-    PUNTOCOMA       reduce using rule 18 (expression -> var DIVIDIR var .)
-    RPAREN          reduce using rule 18 (expression -> var DIVIDIR var .)
+    ID              shift and go to state 29
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
+    var                            shift and go to state 65
+    expresionKart                  shift and go to state 80
 
 state 64
 
-    (22) expression_avanced -> var DIVIDIR LPAREN . expression RPAREN
-    (15) expression -> . var MAS var
-    (16) expression -> . var MENOS var
-    (17) expression -> . var MULT var
-    (18) expression -> . var DIVIDIR var
-    (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (18) expresionKart -> var Waluigi var .
 
-    ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    HuevoBirdo      reduce using rule 18 (expresionKart -> var Waluigi var .)
+    MonedaR         reduce using rule 18 (expresionKart -> var Waluigi var .)
 
-    var                            shift and go to state 76
-    expression                     shift and go to state 80
 
 state 65
 
-    (6) declaration -> tipo ID IGUAL var PUNTOCOMA .
+    (15) expresionKart -> var . Mario var
+    (16) expresionKart -> var . Luigi var
+    (17) expresionKart -> var . Koopa var
+    (18) expresionKart -> var . Waluigi var
 
-    RBLOCK          reduce using rule 6 (declaration -> tipo ID IGUAL var PUNTOCOMA .)
-    ID              reduce using rule 6 (declaration -> tipo ID IGUAL var PUNTOCOMA .)
-    VAR             reduce using rule 6 (declaration -> tipo ID IGUAL var PUNTOCOMA .)
-    IF              reduce using rule 6 (declaration -> tipo ID IGUAL var PUNTOCOMA .)
-    NUMERO          reduce using rule 6 (declaration -> tipo ID IGUAL var PUNTOCOMA .)
-    CADENA          reduce using rule 6 (declaration -> tipo ID IGUAL var PUNTOCOMA .)
-    DO              reduce using rule 6 (declaration -> tipo ID IGUAL var PUNTOCOMA .)
-    WHILE           reduce using rule 6 (declaration -> tipo ID IGUAL var PUNTOCOMA .)
+    Mario           shift and go to state 81
+    Luigi           shift and go to state 82
+    Koopa           shift and go to state 83
+    Waluigi         shift and go to state 43
 
 
 state 66
 
-    (11) declaration -> tipo ID IGUAL expression PUNTOCOMA .
+    (22) expresionKart_avanced -> var MonedaO expresionKart . MonedaR
 
-    RBLOCK          reduce using rule 11 (declaration -> tipo ID IGUAL expression PUNTOCOMA .)
-    ID              reduce using rule 11 (declaration -> tipo ID IGUAL expression PUNTOCOMA .)
-    VAR             reduce using rule 11 (declaration -> tipo ID IGUAL expression PUNTOCOMA .)
-    IF              reduce using rule 11 (declaration -> tipo ID IGUAL expression PUNTOCOMA .)
-    NUMERO          reduce using rule 11 (declaration -> tipo ID IGUAL expression PUNTOCOMA .)
-    CADENA          reduce using rule 11 (declaration -> tipo ID IGUAL expression PUNTOCOMA .)
-    DO              reduce using rule 11 (declaration -> tipo ID IGUAL expression PUNTOCOMA .)
-    WHILE           reduce using rule 11 (declaration -> tipo ID IGUAL expression PUNTOCOMA .)
+    MonedaR         shift and go to state 84
 
 
 state 67
 
-    (13) declaration -> tipo ID IGUAL expression_avanced PUNTOCOMA .
+    (6) declaracion -> tipo ID Toad var HuevoBirdo .
 
-    RBLOCK          reduce using rule 13 (declaration -> tipo ID IGUAL expression_avanced PUNTOCOMA .)
-    ID              reduce using rule 13 (declaration -> tipo ID IGUAL expression_avanced PUNTOCOMA .)
-    VAR             reduce using rule 13 (declaration -> tipo ID IGUAL expression_avanced PUNTOCOMA .)
-    IF              reduce using rule 13 (declaration -> tipo ID IGUAL expression_avanced PUNTOCOMA .)
-    NUMERO          reduce using rule 13 (declaration -> tipo ID IGUAL expression_avanced PUNTOCOMA .)
-    CADENA          reduce using rule 13 (declaration -> tipo ID IGUAL expression_avanced PUNTOCOMA .)
-    DO              reduce using rule 13 (declaration -> tipo ID IGUAL expression_avanced PUNTOCOMA .)
-    WHILE           reduce using rule 13 (declaration -> tipo ID IGUAL expression_avanced PUNTOCOMA .)
+    RayoR           reduce using rule 6 (declaracion -> tipo ID Toad var HuevoBirdo .)
+    ID              reduce using rule 6 (declaracion -> tipo ID Toad var HuevoBirdo .)
+    VAR             reduce using rule 6 (declaracion -> tipo ID Toad var HuevoBirdo .)
+    IF              reduce using rule 6 (declaracion -> tipo ID Toad var HuevoBirdo .)
+    Puntos          reduce using rule 6 (declaracion -> tipo ID Toad var HuevoBirdo .)
+    Texto           reduce using rule 6 (declaracion -> tipo ID Toad var HuevoBirdo .)
+    DO              reduce using rule 6 (declaracion -> tipo ID Toad var HuevoBirdo .)
+    WHILE           reduce using rule 6 (declaracion -> tipo ID Toad var HuevoBirdo .)
 
 
 state 68
 
-    (28) if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK . declaracionLista RBLOCK
-    (29) if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK . declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
-    (2) declaracionLista -> . declaracionLista declaration
-    (3) declaracionLista -> . declaration
-    (4) declaration -> . tipo ID PUNTOCOMA
-    (5) declaration -> . ID IGUAL var PUNTOCOMA
-    (6) declaration -> . tipo ID IGUAL var PUNTOCOMA
-    (7) declaration -> . if_condicion
-    (8) declaration -> . var PUNTOCOMA
-    (9) declaration -> . do_condicion
-    (10) declaration -> . while_condition
-    (11) declaration -> . tipo ID IGUAL expression PUNTOCOMA
-    (12) declaration -> . ID IGUAL expression PUNTOCOMA
-    (13) declaration -> . tipo ID IGUAL expression_avanced PUNTOCOMA
-    (14) declaration -> . ID IGUAL expression_avanced PUNTOCOMA
-    (33) tipo -> . VAR
-    (28) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
-    (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-    (30) do_condicion -> . DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN
-    (31) while_condition -> .
-    (32) while_condition -> . WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
+    (11) declaracion -> tipo ID Toad expresionKart HuevoBirdo .
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for VAR resolved as shift
-  ! shift/reduce conflict for IF resolved as shift
-  ! shift/reduce conflict for NUMERO resolved as shift
-  ! shift/reduce conflict for CADENA resolved as shift
-  ! shift/reduce conflict for DO resolved as shift
-  ! shift/reduce conflict for WHILE resolved as shift
-    ID              shift and go to state 7
-    VAR             shift and go to state 15
-    IF              shift and go to state 16
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
-    DO              shift and go to state 19
-    RBLOCK          reduce using rule 31 (while_condition -> .)
-    WHILE           shift and go to state 20
+    RayoR           reduce using rule 11 (declaracion -> tipo ID Toad expresionKart HuevoBirdo .)
+    ID              reduce using rule 11 (declaracion -> tipo ID Toad expresionKart HuevoBirdo .)
+    VAR             reduce using rule 11 (declaracion -> tipo ID Toad expresionKart HuevoBirdo .)
+    IF              reduce using rule 11 (declaracion -> tipo ID Toad expresionKart HuevoBirdo .)
+    Puntos          reduce using rule 11 (declaracion -> tipo ID Toad expresionKart HuevoBirdo .)
+    Texto           reduce using rule 11 (declaracion -> tipo ID Toad expresionKart HuevoBirdo .)
+    DO              reduce using rule 11 (declaracion -> tipo ID Toad expresionKart HuevoBirdo .)
+    WHILE           reduce using rule 11 (declaracion -> tipo ID Toad expresionKart HuevoBirdo .)
 
-  ! ID              [ reduce using rule 31 (while_condition -> .) ]
-  ! VAR             [ reduce using rule 31 (while_condition -> .) ]
-  ! IF              [ reduce using rule 31 (while_condition -> .) ]
-  ! NUMERO          [ reduce using rule 31 (while_condition -> .) ]
-  ! CADENA          [ reduce using rule 31 (while_condition -> .) ]
-  ! DO              [ reduce using rule 31 (while_condition -> .) ]
-  ! WHILE           [ reduce using rule 31 (while_condition -> .) ]
-
-    declaracionLista               shift and go to state 81
-    declaration                    shift and go to state 9
-    tipo                           shift and go to state 10
-    var                            shift and go to state 11
-    if_condicion                   shift and go to state 12
-    do_condicion                   shift and go to state 13
-    while_condition                shift and go to state 14
 
 state 69
 
-    (23) expression_bool -> var IGUALXDOS var .
+    (13) declaracion -> tipo ID Toad expresionKart_avanced HuevoBirdo .
 
-    RPAREN          reduce using rule 23 (expression_bool -> var IGUALXDOS var .)
+    RayoR           reduce using rule 13 (declaracion -> tipo ID Toad expresionKart_avanced HuevoBirdo .)
+    ID              reduce using rule 13 (declaracion -> tipo ID Toad expresionKart_avanced HuevoBirdo .)
+    VAR             reduce using rule 13 (declaracion -> tipo ID Toad expresionKart_avanced HuevoBirdo .)
+    IF              reduce using rule 13 (declaracion -> tipo ID Toad expresionKart_avanced HuevoBirdo .)
+    Puntos          reduce using rule 13 (declaracion -> tipo ID Toad expresionKart_avanced HuevoBirdo .)
+    Texto           reduce using rule 13 (declaracion -> tipo ID Toad expresionKart_avanced HuevoBirdo .)
+    DO              reduce using rule 13 (declaracion -> tipo ID Toad expresionKart_avanced HuevoBirdo .)
+    WHILE           reduce using rule 13 (declaracion -> tipo ID Toad expresionKart_avanced HuevoBirdo .)
 
 
 state 70
 
-    (24) expression_bool -> var MENOR var .
+    (28) if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL . declaracionLista RayoR
+    (29) if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL . declaracionLista RayoR ELSE RayoL declaracionLista RayoR
+    (2) declaracionLista -> . declaracionLista declaracion
+    (3) declaracionLista -> . declaracion
+    (4) declaracion -> . tipo ID HuevoBirdo
+    (5) declaracion -> . ID Toad var HuevoBirdo
+    (6) declaracion -> . tipo ID Toad var HuevoBirdo
+    (7) declaracion -> . if_condicion
+    (8) declaracion -> . var HuevoBirdo
+    (9) declaracion -> . do_condicion
+    (10) declaracion -> . while_condicion
+    (11) declaracion -> . tipo ID Toad expresionKart HuevoBirdo
+    (12) declaracion -> . ID Toad expresionKart HuevoBirdo
+    (13) declaracion -> . tipo ID Toad expresionKart_avanced HuevoBirdo
+    (14) declaracion -> . ID Toad expresionKart_avanced HuevoBirdo
+    (33) tipo -> . VAR
+    (28) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+    (29) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
+    (34) var -> . ID
+    (35) var -> . Puntos
+    (36) var -> . Texto
+    (30) do_condicion -> . DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR
+    (31) while_condicion -> .
+    (32) while_condicion -> . WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
 
-    RPAREN          reduce using rule 24 (expression_bool -> var MENOR var .)
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for VAR resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for Puntos resolved as shift
+  ! shift/reduce conflict for Texto resolved as shift
+  ! shift/reduce conflict for DO resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+    ID              shift and go to state 7
+    VAR             shift and go to state 15
+    IF              shift and go to state 16
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
+    DO              shift and go to state 19
+    RayoR           reduce using rule 31 (while_condicion -> .)
+    WHILE           shift and go to state 20
 
+  ! ID              [ reduce using rule 31 (while_condicion -> .) ]
+  ! VAR             [ reduce using rule 31 (while_condicion -> .) ]
+  ! IF              [ reduce using rule 31 (while_condicion -> .) ]
+  ! Puntos          [ reduce using rule 31 (while_condicion -> .) ]
+  ! Texto           [ reduce using rule 31 (while_condicion -> .) ]
+  ! DO              [ reduce using rule 31 (while_condicion -> .) ]
+  ! WHILE           [ reduce using rule 31 (while_condicion -> .) ]
+
+    declaracionLista               shift and go to state 85
+    declaracion                    shift and go to state 9
+    tipo                           shift and go to state 10
+    var                            shift and go to state 11
+    if_condicion                   shift and go to state 12
+    do_condicion                   shift and go to state 13
+    while_condicion                shift and go to state 14
 
 state 71
 
-    (25) expression_bool -> var MAYOR var .
+    (23) expresionKart_bool -> var Furor var .
 
-    RPAREN          reduce using rule 25 (expression_bool -> var MAYOR var .)
+    MonedaR         reduce using rule 23 (expresionKart_bool -> var Furor var .)
 
 
 state 72
 
-    (26) expression_bool -> var MAYORIGUALQ var .
+    (24) expresionKart_bool -> var Peach var .
 
-    RPAREN          reduce using rule 26 (expression_bool -> var MAYORIGUALQ var .)
+    MonedaR         reduce using rule 24 (expresionKart_bool -> var Peach var .)
 
 
 state 73
 
-    (27) expression_bool -> var MENORIGUALQ var .
+    (25) expresionKart_bool -> var Daysi var .
 
-    RPAREN          reduce using rule 27 (expression_bool -> var MENORIGUALQ var .)
+    MonedaR         reduce using rule 25 (expresionKart_bool -> var Daysi var .)
 
 
 state 74
 
-    (30) do_condicion -> DO LBLOCK declaracionLista RBLOCK WHILE . LPAREN expression_bool RPAREN
+    (26) expresionKart_bool -> var DonkeyKong var .
 
-    LPAREN          shift and go to state 82
+    MonedaR         reduce using rule 26 (expresionKart_bool -> var DonkeyKong var .)
 
 
 state 75
 
-    (32) while_condition -> WHILE LPAREN expression_bool RPAREN LBLOCK . declaracionLista RBLOCK
-    (2) declaracionLista -> . declaracionLista declaration
-    (3) declaracionLista -> . declaration
-    (4) declaration -> . tipo ID PUNTOCOMA
-    (5) declaration -> . ID IGUAL var PUNTOCOMA
-    (6) declaration -> . tipo ID IGUAL var PUNTOCOMA
-    (7) declaration -> . if_condicion
-    (8) declaration -> . var PUNTOCOMA
-    (9) declaration -> . do_condicion
-    (10) declaration -> . while_condition
-    (11) declaration -> . tipo ID IGUAL expression PUNTOCOMA
-    (12) declaration -> . ID IGUAL expression PUNTOCOMA
-    (13) declaration -> . tipo ID IGUAL expression_avanced PUNTOCOMA
-    (14) declaration -> . ID IGUAL expression_avanced PUNTOCOMA
-    (33) tipo -> . VAR
-    (28) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
-    (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-    (30) do_condicion -> . DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN
-    (31) while_condition -> .
-    (32) while_condition -> . WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
+    (27) expresionKart_bool -> var DiddyKong var .
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for VAR resolved as shift
-  ! shift/reduce conflict for IF resolved as shift
-  ! shift/reduce conflict for NUMERO resolved as shift
-  ! shift/reduce conflict for CADENA resolved as shift
-  ! shift/reduce conflict for DO resolved as shift
-  ! shift/reduce conflict for WHILE resolved as shift
-    ID              shift and go to state 7
-    VAR             shift and go to state 15
-    IF              shift and go to state 16
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
-    DO              shift and go to state 19
-    RBLOCK          reduce using rule 31 (while_condition -> .)
-    WHILE           shift and go to state 20
+    MonedaR         reduce using rule 27 (expresionKart_bool -> var DiddyKong var .)
 
-  ! ID              [ reduce using rule 31 (while_condition -> .) ]
-  ! VAR             [ reduce using rule 31 (while_condition -> .) ]
-  ! IF              [ reduce using rule 31 (while_condition -> .) ]
-  ! NUMERO          [ reduce using rule 31 (while_condition -> .) ]
-  ! CADENA          [ reduce using rule 31 (while_condition -> .) ]
-  ! DO              [ reduce using rule 31 (while_condition -> .) ]
-  ! WHILE           [ reduce using rule 31 (while_condition -> .) ]
-
-    declaracionLista               shift and go to state 83
-    declaration                    shift and go to state 9
-    tipo                           shift and go to state 10
-    var                            shift and go to state 11
-    if_condicion                   shift and go to state 12
-    do_condicion                   shift and go to state 13
-    while_condition                shift and go to state 14
 
 state 76
 
-    (15) expression -> var . MAS var
-    (16) expression -> var . MENOS var
-    (17) expression -> var . MULT var
-    (18) expression -> var . DIVIDIR var
+    (30) do_condicion -> DO RayoL declaracionLista RayoR WHILE . MonedaO expresionKart_bool MonedaR
 
-    MAS             shift and go to state 84
-    MENOS           shift and go to state 85
-    MULT            shift and go to state 86
-    DIVIDIR         shift and go to state 87
+    MonedaO         shift and go to state 86
 
 
 state 77
 
-    (19) expression_avanced -> var MAS LPAREN expression . RPAREN
+    (32) while_condicion -> WHILE MonedaO expresionKart_bool MonedaR RayoL . declaracionLista RayoR
+    (2) declaracionLista -> . declaracionLista declaracion
+    (3) declaracionLista -> . declaracion
+    (4) declaracion -> . tipo ID HuevoBirdo
+    (5) declaracion -> . ID Toad var HuevoBirdo
+    (6) declaracion -> . tipo ID Toad var HuevoBirdo
+    (7) declaracion -> . if_condicion
+    (8) declaracion -> . var HuevoBirdo
+    (9) declaracion -> . do_condicion
+    (10) declaracion -> . while_condicion
+    (11) declaracion -> . tipo ID Toad expresionKart HuevoBirdo
+    (12) declaracion -> . ID Toad expresionKart HuevoBirdo
+    (13) declaracion -> . tipo ID Toad expresionKart_avanced HuevoBirdo
+    (14) declaracion -> . ID Toad expresionKart_avanced HuevoBirdo
+    (33) tipo -> . VAR
+    (28) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+    (29) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
+    (34) var -> . ID
+    (35) var -> . Puntos
+    (36) var -> . Texto
+    (30) do_condicion -> . DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR
+    (31) while_condicion -> .
+    (32) while_condicion -> . WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
 
-    RPAREN          shift and go to state 88
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for VAR resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for Puntos resolved as shift
+  ! shift/reduce conflict for Texto resolved as shift
+  ! shift/reduce conflict for DO resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+    ID              shift and go to state 7
+    VAR             shift and go to state 15
+    IF              shift and go to state 16
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
+    DO              shift and go to state 19
+    RayoR           reduce using rule 31 (while_condicion -> .)
+    WHILE           shift and go to state 20
 
+  ! ID              [ reduce using rule 31 (while_condicion -> .) ]
+  ! VAR             [ reduce using rule 31 (while_condicion -> .) ]
+  ! IF              [ reduce using rule 31 (while_condicion -> .) ]
+  ! Puntos          [ reduce using rule 31 (while_condicion -> .) ]
+  ! Texto           [ reduce using rule 31 (while_condicion -> .) ]
+  ! DO              [ reduce using rule 31 (while_condicion -> .) ]
+  ! WHILE           [ reduce using rule 31 (while_condicion -> .) ]
+
+    declaracionLista               shift and go to state 87
+    declaracion                    shift and go to state 9
+    tipo                           shift and go to state 10
+    var                            shift and go to state 11
+    if_condicion                   shift and go to state 12
+    do_condicion                   shift and go to state 13
+    while_condicion                shift and go to state 14
 
 state 78
 
-    (20) expression_avanced -> var MENOS LPAREN expression . RPAREN
+    (19) expresionKart_avanced -> var Mario MonedaO expresionKart . MonedaR
 
-    RPAREN          shift and go to state 89
+    MonedaR         shift and go to state 88
 
 
 state 79
 
-    (21) expression_avanced -> var MULT LPAREN expression . RPAREN
+    (20) expresionKart_avanced -> var Luigi MonedaO expresionKart . MonedaR
 
-    RPAREN          shift and go to state 90
+    MonedaR         shift and go to state 89
 
 
 state 80
 
-    (22) expression_avanced -> var DIVIDIR LPAREN expression . RPAREN
+    (21) expresionKart_avanced -> var Koopa MonedaO expresionKart . MonedaR
 
-    RPAREN          shift and go to state 91
+    MonedaR         shift and go to state 90
 
 
 state 81
 
-    (28) if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista . RBLOCK
-    (29) if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista . RBLOCK ELSE LBLOCK declaracionLista RBLOCK
-    (2) declaracionLista -> declaracionLista . declaration
-    (4) declaration -> . tipo ID PUNTOCOMA
-    (5) declaration -> . ID IGUAL var PUNTOCOMA
-    (6) declaration -> . tipo ID IGUAL var PUNTOCOMA
-    (7) declaration -> . if_condicion
-    (8) declaration -> . var PUNTOCOMA
-    (9) declaration -> . do_condicion
-    (10) declaration -> . while_condition
-    (11) declaration -> . tipo ID IGUAL expression PUNTOCOMA
-    (12) declaration -> . ID IGUAL expression PUNTOCOMA
-    (13) declaration -> . tipo ID IGUAL expression_avanced PUNTOCOMA
-    (14) declaration -> . ID IGUAL expression_avanced PUNTOCOMA
-    (33) tipo -> . VAR
-    (28) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
+    (15) expresionKart -> var Mario . var
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-    (30) do_condicion -> . DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN
-    (31) while_condition -> .
-    (32) while_condition -> . WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
-  ! shift/reduce conflict for RBLOCK resolved as shift
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for VAR resolved as shift
-  ! shift/reduce conflict for IF resolved as shift
-  ! shift/reduce conflict for NUMERO resolved as shift
-  ! shift/reduce conflict for CADENA resolved as shift
-  ! shift/reduce conflict for DO resolved as shift
-  ! shift/reduce conflict for WHILE resolved as shift
-    RBLOCK          shift and go to state 92
-    ID              shift and go to state 7
-    VAR             shift and go to state 15
-    IF              shift and go to state 16
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
-    DO              shift and go to state 19
-    WHILE           shift and go to state 20
+    ID              shift and go to state 29
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
-  ! RBLOCK          [ reduce using rule 31 (while_condition -> .) ]
-  ! ID              [ reduce using rule 31 (while_condition -> .) ]
-  ! VAR             [ reduce using rule 31 (while_condition -> .) ]
-  ! IF              [ reduce using rule 31 (while_condition -> .) ]
-  ! NUMERO          [ reduce using rule 31 (while_condition -> .) ]
-  ! CADENA          [ reduce using rule 31 (while_condition -> .) ]
-  ! DO              [ reduce using rule 31 (while_condition -> .) ]
-  ! WHILE           [ reduce using rule 31 (while_condition -> .) ]
-
-    declaration                    shift and go to state 23
-    tipo                           shift and go to state 10
-    var                            shift and go to state 11
-    if_condicion                   shift and go to state 12
-    do_condicion                   shift and go to state 13
-    while_condition                shift and go to state 14
+    var                            shift and go to state 58
 
 state 82
 
-    (30) do_condicion -> DO LBLOCK declaracionLista RBLOCK WHILE LPAREN . expression_bool RPAREN
-    (23) expression_bool -> . var IGUALXDOS var
-    (24) expression_bool -> . var MENOR var
-    (25) expression_bool -> . var MAYOR var
-    (26) expression_bool -> . var MAYORIGUALQ var
-    (27) expression_bool -> . var MENORIGUALQ var
+    (16) expresionKart -> var Luigi . var
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
     ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
-    expression_bool                shift and go to state 93
-    var                            shift and go to state 36
+    var                            shift and go to state 60
 
 state 83
 
-    (32) while_condition -> WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista . RBLOCK
-    (2) declaracionLista -> declaracionLista . declaration
-    (4) declaration -> . tipo ID PUNTOCOMA
-    (5) declaration -> . ID IGUAL var PUNTOCOMA
-    (6) declaration -> . tipo ID IGUAL var PUNTOCOMA
-    (7) declaration -> . if_condicion
-    (8) declaration -> . var PUNTOCOMA
-    (9) declaration -> . do_condicion
-    (10) declaration -> . while_condition
-    (11) declaration -> . tipo ID IGUAL expression PUNTOCOMA
-    (12) declaration -> . ID IGUAL expression PUNTOCOMA
-    (13) declaration -> . tipo ID IGUAL expression_avanced PUNTOCOMA
-    (14) declaration -> . ID IGUAL expression_avanced PUNTOCOMA
-    (33) tipo -> . VAR
-    (28) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
+    (17) expresionKart -> var Koopa . var
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-    (30) do_condicion -> . DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN
-    (31) while_condition -> .
-    (32) while_condition -> . WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
-  ! shift/reduce conflict for RBLOCK resolved as shift
+    ID              shift and go to state 29
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
+
+    var                            shift and go to state 62
+
+state 84
+
+    (22) expresionKart_avanced -> var MonedaO expresionKart MonedaR .
+
+    HuevoBirdo      reduce using rule 22 (expresionKart_avanced -> var MonedaO expresionKart MonedaR .)
+
+
+state 85
+
+    (28) if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista . RayoR
+    (29) if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista . RayoR ELSE RayoL declaracionLista RayoR
+    (2) declaracionLista -> declaracionLista . declaracion
+    (4) declaracion -> . tipo ID HuevoBirdo
+    (5) declaracion -> . ID Toad var HuevoBirdo
+    (6) declaracion -> . tipo ID Toad var HuevoBirdo
+    (7) declaracion -> . if_condicion
+    (8) declaracion -> . var HuevoBirdo
+    (9) declaracion -> . do_condicion
+    (10) declaracion -> . while_condicion
+    (11) declaracion -> . tipo ID Toad expresionKart HuevoBirdo
+    (12) declaracion -> . ID Toad expresionKart HuevoBirdo
+    (13) declaracion -> . tipo ID Toad expresionKart_avanced HuevoBirdo
+    (14) declaracion -> . ID Toad expresionKart_avanced HuevoBirdo
+    (33) tipo -> . VAR
+    (28) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+    (29) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
+    (34) var -> . ID
+    (35) var -> . Puntos
+    (36) var -> . Texto
+    (30) do_condicion -> . DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR
+    (31) while_condicion -> .
+    (32) while_condicion -> . WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+
+  ! shift/reduce conflict for RayoR resolved as shift
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for VAR resolved as shift
   ! shift/reduce conflict for IF resolved as shift
-  ! shift/reduce conflict for NUMERO resolved as shift
-  ! shift/reduce conflict for CADENA resolved as shift
+  ! shift/reduce conflict for Puntos resolved as shift
+  ! shift/reduce conflict for Texto resolved as shift
   ! shift/reduce conflict for DO resolved as shift
   ! shift/reduce conflict for WHILE resolved as shift
-    RBLOCK          shift and go to state 94
+    RayoR           shift and go to state 91
     ID              shift and go to state 7
     VAR             shift and go to state 15
     IF              shift and go to state 16
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
     DO              shift and go to state 19
     WHILE           shift and go to state 20
 
-  ! RBLOCK          [ reduce using rule 31 (while_condition -> .) ]
-  ! ID              [ reduce using rule 31 (while_condition -> .) ]
-  ! VAR             [ reduce using rule 31 (while_condition -> .) ]
-  ! IF              [ reduce using rule 31 (while_condition -> .) ]
-  ! NUMERO          [ reduce using rule 31 (while_condition -> .) ]
-  ! CADENA          [ reduce using rule 31 (while_condition -> .) ]
-  ! DO              [ reduce using rule 31 (while_condition -> .) ]
-  ! WHILE           [ reduce using rule 31 (while_condition -> .) ]
+  ! RayoR           [ reduce using rule 31 (while_condicion -> .) ]
+  ! ID              [ reduce using rule 31 (while_condicion -> .) ]
+  ! VAR             [ reduce using rule 31 (while_condicion -> .) ]
+  ! IF              [ reduce using rule 31 (while_condicion -> .) ]
+  ! Puntos          [ reduce using rule 31 (while_condicion -> .) ]
+  ! Texto           [ reduce using rule 31 (while_condicion -> .) ]
+  ! DO              [ reduce using rule 31 (while_condicion -> .) ]
+  ! WHILE           [ reduce using rule 31 (while_condicion -> .) ]
 
-    declaration                    shift and go to state 23
+    declaracion                    shift and go to state 23
     tipo                           shift and go to state 10
     var                            shift and go to state 11
     if_condicion                   shift and go to state 12
     do_condicion                   shift and go to state 13
-    while_condition                shift and go to state 14
-
-state 84
-
-    (15) expression -> var MAS . var
-    (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-
-    ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
-
-    var                            shift and go to state 57
-
-state 85
-
-    (16) expression -> var MENOS . var
-    (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-
-    ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
-
-    var                            shift and go to state 59
+    while_condicion                shift and go to state 14
 
 state 86
 
-    (17) expression -> var MULT . var
+    (30) do_condicion -> DO RayoL declaracionLista RayoR WHILE MonedaO . expresionKart_bool MonedaR
+    (23) expresionKart_bool -> . var Furor var
+    (24) expresionKart_bool -> . var Peach var
+    (25) expresionKart_bool -> . var Daysi var
+    (26) expresionKart_bool -> . var DonkeyKong var
+    (27) expresionKart_bool -> . var DiddyKong var
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (35) var -> . Puntos
+    (36) var -> . Texto
 
     ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
 
-    var                            shift and go to state 61
+    expresionKart_bool             shift and go to state 92
+    var                            shift and go to state 36
 
 state 87
 
-    (18) expression -> var DIVIDIR . var
+    (32) while_condicion -> WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista . RayoR
+    (2) declaracionLista -> declaracionLista . declaracion
+    (4) declaracion -> . tipo ID HuevoBirdo
+    (5) declaracion -> . ID Toad var HuevoBirdo
+    (6) declaracion -> . tipo ID Toad var HuevoBirdo
+    (7) declaracion -> . if_condicion
+    (8) declaracion -> . var HuevoBirdo
+    (9) declaracion -> . do_condicion
+    (10) declaracion -> . while_condicion
+    (11) declaracion -> . tipo ID Toad expresionKart HuevoBirdo
+    (12) declaracion -> . ID Toad expresionKart HuevoBirdo
+    (13) declaracion -> . tipo ID Toad expresionKart_avanced HuevoBirdo
+    (14) declaracion -> . ID Toad expresionKart_avanced HuevoBirdo
+    (33) tipo -> . VAR
+    (28) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+    (29) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
+    (35) var -> . Puntos
+    (36) var -> . Texto
+    (30) do_condicion -> . DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR
+    (31) while_condicion -> .
+    (32) while_condicion -> . WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
 
-    ID              shift and go to state 29
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+  ! shift/reduce conflict for RayoR resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for VAR resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for Puntos resolved as shift
+  ! shift/reduce conflict for Texto resolved as shift
+  ! shift/reduce conflict for DO resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+    RayoR           shift and go to state 93
+    ID              shift and go to state 7
+    VAR             shift and go to state 15
+    IF              shift and go to state 16
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
+    DO              shift and go to state 19
+    WHILE           shift and go to state 20
 
-    var                            shift and go to state 63
+  ! RayoR           [ reduce using rule 31 (while_condicion -> .) ]
+  ! ID              [ reduce using rule 31 (while_condicion -> .) ]
+  ! VAR             [ reduce using rule 31 (while_condicion -> .) ]
+  ! IF              [ reduce using rule 31 (while_condicion -> .) ]
+  ! Puntos          [ reduce using rule 31 (while_condicion -> .) ]
+  ! Texto           [ reduce using rule 31 (while_condicion -> .) ]
+  ! DO              [ reduce using rule 31 (while_condicion -> .) ]
+  ! WHILE           [ reduce using rule 31 (while_condicion -> .) ]
+
+    declaracion                    shift and go to state 23
+    tipo                           shift and go to state 10
+    var                            shift and go to state 11
+    if_condicion                   shift and go to state 12
+    do_condicion                   shift and go to state 13
+    while_condicion                shift and go to state 14
 
 state 88
 
-    (19) expression_avanced -> var MAS LPAREN expression RPAREN .
+    (19) expresionKart_avanced -> var Mario MonedaO expresionKart MonedaR .
 
-    PUNTOCOMA       reduce using rule 19 (expression_avanced -> var MAS LPAREN expression RPAREN .)
+    HuevoBirdo      reduce using rule 19 (expresionKart_avanced -> var Mario MonedaO expresionKart MonedaR .)
 
 
 state 89
 
-    (20) expression_avanced -> var MENOS LPAREN expression RPAREN .
+    (20) expresionKart_avanced -> var Luigi MonedaO expresionKart MonedaR .
 
-    PUNTOCOMA       reduce using rule 20 (expression_avanced -> var MENOS LPAREN expression RPAREN .)
+    HuevoBirdo      reduce using rule 20 (expresionKart_avanced -> var Luigi MonedaO expresionKart MonedaR .)
 
 
 state 90
 
-    (21) expression_avanced -> var MULT LPAREN expression RPAREN .
+    (21) expresionKart_avanced -> var Koopa MonedaO expresionKart MonedaR .
 
-    PUNTOCOMA       reduce using rule 21 (expression_avanced -> var MULT LPAREN expression RPAREN .)
+    HuevoBirdo      reduce using rule 21 (expresionKart_avanced -> var Koopa MonedaO expresionKart MonedaR .)
 
 
 state 91
 
-    (22) expression_avanced -> var DIVIDIR LPAREN expression RPAREN .
+    (28) if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .
+    (29) if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR . ELSE RayoL declaracionLista RayoR
 
-    PUNTOCOMA       reduce using rule 22 (expression_avanced -> var DIVIDIR LPAREN expression RPAREN .)
+    RayoR           reduce using rule 28 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    ID              reduce using rule 28 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    VAR             reduce using rule 28 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    IF              reduce using rule 28 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    Puntos          reduce using rule 28 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    Texto           reduce using rule 28 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    DO              reduce using rule 28 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    WHILE           reduce using rule 28 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    ELSE            shift and go to state 94
 
 
 state 92
 
-    (28) if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .
-    (29) if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK . ELSE LBLOCK declaracionLista RBLOCK
+    (30) do_condicion -> DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool . MonedaR
 
-    RBLOCK          reduce using rule 28 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    ID              reduce using rule 28 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    VAR             reduce using rule 28 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    IF              reduce using rule 28 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    NUMERO          reduce using rule 28 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    CADENA          reduce using rule 28 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    DO              reduce using rule 28 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    WHILE           reduce using rule 28 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    ELSE            shift and go to state 95
+    MonedaR         shift and go to state 95
 
 
 state 93
 
-    (30) do_condicion -> DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool . RPAREN
+    (32) while_condicion -> WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .
 
-    RPAREN          shift and go to state 96
+    RayoR           reduce using rule 32 (while_condicion -> WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    ID              reduce using rule 32 (while_condicion -> WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    VAR             reduce using rule 32 (while_condicion -> WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    IF              reduce using rule 32 (while_condicion -> WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    Puntos          reduce using rule 32 (while_condicion -> WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    Texto           reduce using rule 32 (while_condicion -> WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    DO              reduce using rule 32 (while_condicion -> WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
+    WHILE           reduce using rule 32 (while_condicion -> WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR .)
 
 
 state 94
 
-    (32) while_condition -> WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .
+    (29) if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE . RayoL declaracionLista RayoR
 
-    RBLOCK          reduce using rule 32 (while_condition -> WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    ID              reduce using rule 32 (while_condition -> WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    VAR             reduce using rule 32 (while_condition -> WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    IF              reduce using rule 32 (while_condition -> WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    NUMERO          reduce using rule 32 (while_condition -> WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    CADENA          reduce using rule 32 (while_condition -> WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    DO              reduce using rule 32 (while_condition -> WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
-    WHILE           reduce using rule 32 (while_condition -> WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK .)
+    RayoL           shift and go to state 96
 
 
 state 95
 
-    (29) if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE . LBLOCK declaracionLista RBLOCK
+    (30) do_condicion -> DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR .
 
-    LBLOCK          shift and go to state 97
+    RayoR           reduce using rule 30 (do_condicion -> DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR .)
+    ID              reduce using rule 30 (do_condicion -> DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR .)
+    VAR             reduce using rule 30 (do_condicion -> DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR .)
+    IF              reduce using rule 30 (do_condicion -> DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR .)
+    Puntos          reduce using rule 30 (do_condicion -> DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR .)
+    Texto           reduce using rule 30 (do_condicion -> DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR .)
+    DO              reduce using rule 30 (do_condicion -> DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR .)
+    WHILE           reduce using rule 30 (do_condicion -> DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR .)
 
 
 state 96
 
-    (30) do_condicion -> DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN .
+    (29) if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL . declaracionLista RayoR
+    (2) declaracionLista -> . declaracionLista declaracion
+    (3) declaracionLista -> . declaracion
+    (4) declaracion -> . tipo ID HuevoBirdo
+    (5) declaracion -> . ID Toad var HuevoBirdo
+    (6) declaracion -> . tipo ID Toad var HuevoBirdo
+    (7) declaracion -> . if_condicion
+    (8) declaracion -> . var HuevoBirdo
+    (9) declaracion -> . do_condicion
+    (10) declaracion -> . while_condicion
+    (11) declaracion -> . tipo ID Toad expresionKart HuevoBirdo
+    (12) declaracion -> . ID Toad expresionKart HuevoBirdo
+    (13) declaracion -> . tipo ID Toad expresionKart_avanced HuevoBirdo
+    (14) declaracion -> . ID Toad expresionKart_avanced HuevoBirdo
+    (33) tipo -> . VAR
+    (28) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+    (29) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
+    (34) var -> . ID
+    (35) var -> . Puntos
+    (36) var -> . Texto
+    (30) do_condicion -> . DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR
+    (31) while_condicion -> .
+    (32) while_condicion -> . WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
 
-    RBLOCK          reduce using rule 30 (do_condicion -> DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN .)
-    ID              reduce using rule 30 (do_condicion -> DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN .)
-    VAR             reduce using rule 30 (do_condicion -> DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN .)
-    IF              reduce using rule 30 (do_condicion -> DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN .)
-    NUMERO          reduce using rule 30 (do_condicion -> DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN .)
-    CADENA          reduce using rule 30 (do_condicion -> DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN .)
-    DO              reduce using rule 30 (do_condicion -> DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN .)
-    WHILE           reduce using rule 30 (do_condicion -> DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN .)
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for VAR resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for Puntos resolved as shift
+  ! shift/reduce conflict for Texto resolved as shift
+  ! shift/reduce conflict for DO resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+    ID              shift and go to state 7
+    VAR             shift and go to state 15
+    IF              shift and go to state 16
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
+    DO              shift and go to state 19
+    RayoR           reduce using rule 31 (while_condicion -> .)
+    WHILE           shift and go to state 20
 
+  ! ID              [ reduce using rule 31 (while_condicion -> .) ]
+  ! VAR             [ reduce using rule 31 (while_condicion -> .) ]
+  ! IF              [ reduce using rule 31 (while_condicion -> .) ]
+  ! Puntos          [ reduce using rule 31 (while_condicion -> .) ]
+  ! Texto           [ reduce using rule 31 (while_condicion -> .) ]
+  ! DO              [ reduce using rule 31 (while_condicion -> .) ]
+  ! WHILE           [ reduce using rule 31 (while_condicion -> .) ]
+
+    declaracionLista               shift and go to state 97
+    declaracion                    shift and go to state 9
+    tipo                           shift and go to state 10
+    var                            shift and go to state 11
+    if_condicion                   shift and go to state 12
+    do_condicion                   shift and go to state 13
+    while_condicion                shift and go to state 14
 
 state 97
 
-    (29) if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK . declaracionLista RBLOCK
-    (2) declaracionLista -> . declaracionLista declaration
-    (3) declaracionLista -> . declaration
-    (4) declaration -> . tipo ID PUNTOCOMA
-    (5) declaration -> . ID IGUAL var PUNTOCOMA
-    (6) declaration -> . tipo ID IGUAL var PUNTOCOMA
-    (7) declaration -> . if_condicion
-    (8) declaration -> . var PUNTOCOMA
-    (9) declaration -> . do_condicion
-    (10) declaration -> . while_condition
-    (11) declaration -> . tipo ID IGUAL expression PUNTOCOMA
-    (12) declaration -> . ID IGUAL expression PUNTOCOMA
-    (13) declaration -> . tipo ID IGUAL expression_avanced PUNTOCOMA
-    (14) declaration -> . ID IGUAL expression_avanced PUNTOCOMA
+    (29) if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista . RayoR
+    (2) declaracionLista -> declaracionLista . declaracion
+    (4) declaracion -> . tipo ID HuevoBirdo
+    (5) declaracion -> . ID Toad var HuevoBirdo
+    (6) declaracion -> . tipo ID Toad var HuevoBirdo
+    (7) declaracion -> . if_condicion
+    (8) declaracion -> . var HuevoBirdo
+    (9) declaracion -> . do_condicion
+    (10) declaracion -> . while_condicion
+    (11) declaracion -> . tipo ID Toad expresionKart HuevoBirdo
+    (12) declaracion -> . ID Toad expresionKart HuevoBirdo
+    (13) declaracion -> . tipo ID Toad expresionKart_avanced HuevoBirdo
+    (14) declaracion -> . ID Toad expresionKart_avanced HuevoBirdo
     (33) tipo -> . VAR
-    (28) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
+    (28) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
+    (29) if_condicion -> . IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR
     (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-    (30) do_condicion -> . DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN
-    (31) while_condition -> .
-    (32) while_condition -> . WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
+    (35) var -> . Puntos
+    (36) var -> . Texto
+    (30) do_condicion -> . DO RayoL declaracionLista RayoR WHILE MonedaO expresionKart_bool MonedaR
+    (31) while_condicion -> .
+    (32) while_condicion -> . WHILE MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR
 
+  ! shift/reduce conflict for RayoR resolved as shift
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for VAR resolved as shift
   ! shift/reduce conflict for IF resolved as shift
-  ! shift/reduce conflict for NUMERO resolved as shift
-  ! shift/reduce conflict for CADENA resolved as shift
+  ! shift/reduce conflict for Puntos resolved as shift
+  ! shift/reduce conflict for Texto resolved as shift
   ! shift/reduce conflict for DO resolved as shift
   ! shift/reduce conflict for WHILE resolved as shift
+    RayoR           shift and go to state 98
     ID              shift and go to state 7
     VAR             shift and go to state 15
     IF              shift and go to state 16
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
+    Puntos          shift and go to state 17
+    Texto           shift and go to state 18
     DO              shift and go to state 19
-    RBLOCK          reduce using rule 31 (while_condition -> .)
     WHILE           shift and go to state 20
 
-  ! ID              [ reduce using rule 31 (while_condition -> .) ]
-  ! VAR             [ reduce using rule 31 (while_condition -> .) ]
-  ! IF              [ reduce using rule 31 (while_condition -> .) ]
-  ! NUMERO          [ reduce using rule 31 (while_condition -> .) ]
-  ! CADENA          [ reduce using rule 31 (while_condition -> .) ]
-  ! DO              [ reduce using rule 31 (while_condition -> .) ]
-  ! WHILE           [ reduce using rule 31 (while_condition -> .) ]
+  ! RayoR           [ reduce using rule 31 (while_condicion -> .) ]
+  ! ID              [ reduce using rule 31 (while_condicion -> .) ]
+  ! VAR             [ reduce using rule 31 (while_condicion -> .) ]
+  ! IF              [ reduce using rule 31 (while_condicion -> .) ]
+  ! Puntos          [ reduce using rule 31 (while_condicion -> .) ]
+  ! Texto           [ reduce using rule 31 (while_condicion -> .) ]
+  ! DO              [ reduce using rule 31 (while_condicion -> .) ]
+  ! WHILE           [ reduce using rule 31 (while_condicion -> .) ]
 
-    declaracionLista               shift and go to state 98
-    declaration                    shift and go to state 9
+    declaracion                    shift and go to state 23
     tipo                           shift and go to state 10
     var                            shift and go to state 11
     if_condicion                   shift and go to state 12
     do_condicion                   shift and go to state 13
-    while_condition                shift and go to state 14
+    while_condicion                shift and go to state 14
 
 state 98
 
-    (29) if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista . RBLOCK
-    (2) declaracionLista -> declaracionLista . declaration
-    (4) declaration -> . tipo ID PUNTOCOMA
-    (5) declaration -> . ID IGUAL var PUNTOCOMA
-    (6) declaration -> . tipo ID IGUAL var PUNTOCOMA
-    (7) declaration -> . if_condicion
-    (8) declaration -> . var PUNTOCOMA
-    (9) declaration -> . do_condicion
-    (10) declaration -> . while_condition
-    (11) declaration -> . tipo ID IGUAL expression PUNTOCOMA
-    (12) declaration -> . ID IGUAL expression PUNTOCOMA
-    (13) declaration -> . tipo ID IGUAL expression_avanced PUNTOCOMA
-    (14) declaration -> . ID IGUAL expression_avanced PUNTOCOMA
-    (33) tipo -> . VAR
-    (28) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
-    (29) if_condicion -> . IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK
-    (34) var -> . ID
-    (35) var -> . NUMERO
-    (36) var -> . CADENA
-    (30) do_condicion -> . DO LBLOCK declaracionLista RBLOCK WHILE LPAREN expression_bool RPAREN
-    (31) while_condition -> .
-    (32) while_condition -> . WHILE LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK
+    (29) if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR .
 
-  ! shift/reduce conflict for RBLOCK resolved as shift
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for VAR resolved as shift
-  ! shift/reduce conflict for IF resolved as shift
-  ! shift/reduce conflict for NUMERO resolved as shift
-  ! shift/reduce conflict for CADENA resolved as shift
-  ! shift/reduce conflict for DO resolved as shift
-  ! shift/reduce conflict for WHILE resolved as shift
-    RBLOCK          shift and go to state 99
-    ID              shift and go to state 7
-    VAR             shift and go to state 15
-    IF              shift and go to state 16
-    NUMERO          shift and go to state 17
-    CADENA          shift and go to state 18
-    DO              shift and go to state 19
-    WHILE           shift and go to state 20
-
-  ! RBLOCK          [ reduce using rule 31 (while_condition -> .) ]
-  ! ID              [ reduce using rule 31 (while_condition -> .) ]
-  ! VAR             [ reduce using rule 31 (while_condition -> .) ]
-  ! IF              [ reduce using rule 31 (while_condition -> .) ]
-  ! NUMERO          [ reduce using rule 31 (while_condition -> .) ]
-  ! CADENA          [ reduce using rule 31 (while_condition -> .) ]
-  ! DO              [ reduce using rule 31 (while_condition -> .) ]
-  ! WHILE           [ reduce using rule 31 (while_condition -> .) ]
-
-    declaration                    shift and go to state 23
-    tipo                           shift and go to state 10
-    var                            shift and go to state 11
-    if_condicion                   shift and go to state 12
-    do_condicion                   shift and go to state 13
-    while_condition                shift and go to state 14
-
-state 99
-
-    (29) if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK .
-
-    RBLOCK          reduce using rule 29 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK .)
-    ID              reduce using rule 29 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK .)
-    VAR             reduce using rule 29 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK .)
-    IF              reduce using rule 29 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK .)
-    NUMERO          reduce using rule 29 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK .)
-    CADENA          reduce using rule 29 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK .)
-    DO              reduce using rule 29 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK .)
-    WHILE           reduce using rule 29 (if_condicion -> IF LPAREN expression_bool RPAREN LBLOCK declaracionLista RBLOCK ELSE LBLOCK declaracionLista RBLOCK .)
+    RayoR           reduce using rule 29 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR .)
+    ID              reduce using rule 29 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR .)
+    VAR             reduce using rule 29 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR .)
+    IF              reduce using rule 29 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR .)
+    Puntos          reduce using rule 29 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR .)
+    Texto           reduce using rule 29 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR .)
+    DO              reduce using rule 29 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR .)
+    WHILE           reduce using rule 29 (if_condicion -> IF MonedaO expresionKart_bool MonedaR RayoL declaracionLista RayoR ELSE RayoL declaracionLista RayoR .)
 
 WARNING: 
 WARNING: Conflicts:
@@ -1737,75 +1725,75 @@ WARNING:
 WARNING: shift/reduce conflict for ID in state 6 resolved as shift
 WARNING: shift/reduce conflict for VAR in state 6 resolved as shift
 WARNING: shift/reduce conflict for IF in state 6 resolved as shift
-WARNING: shift/reduce conflict for NUMERO in state 6 resolved as shift
-WARNING: shift/reduce conflict for CADENA in state 6 resolved as shift
+WARNING: shift/reduce conflict for Puntos in state 6 resolved as shift
+WARNING: shift/reduce conflict for Texto in state 6 resolved as shift
 WARNING: shift/reduce conflict for DO in state 6 resolved as shift
 WARNING: shift/reduce conflict for WHILE in state 6 resolved as shift
-WARNING: shift/reduce conflict for RBLOCK in state 8 resolved as shift
+WARNING: shift/reduce conflict for RayoR in state 8 resolved as shift
 WARNING: shift/reduce conflict for ID in state 8 resolved as shift
 WARNING: shift/reduce conflict for VAR in state 8 resolved as shift
 WARNING: shift/reduce conflict for IF in state 8 resolved as shift
-WARNING: shift/reduce conflict for NUMERO in state 8 resolved as shift
-WARNING: shift/reduce conflict for CADENA in state 8 resolved as shift
+WARNING: shift/reduce conflict for Puntos in state 8 resolved as shift
+WARNING: shift/reduce conflict for Texto in state 8 resolved as shift
 WARNING: shift/reduce conflict for DO in state 8 resolved as shift
 WARNING: shift/reduce conflict for WHILE in state 8 resolved as shift
 WARNING: shift/reduce conflict for ID in state 27 resolved as shift
 WARNING: shift/reduce conflict for VAR in state 27 resolved as shift
 WARNING: shift/reduce conflict for IF in state 27 resolved as shift
-WARNING: shift/reduce conflict for NUMERO in state 27 resolved as shift
-WARNING: shift/reduce conflict for CADENA in state 27 resolved as shift
+WARNING: shift/reduce conflict for Puntos in state 27 resolved as shift
+WARNING: shift/reduce conflict for Texto in state 27 resolved as shift
 WARNING: shift/reduce conflict for DO in state 27 resolved as shift
 WARNING: shift/reduce conflict for WHILE in state 27 resolved as shift
-WARNING: shift/reduce conflict for RBLOCK in state 37 resolved as shift
+WARNING: shift/reduce conflict for RayoR in state 37 resolved as shift
 WARNING: shift/reduce conflict for ID in state 37 resolved as shift
 WARNING: shift/reduce conflict for VAR in state 37 resolved as shift
 WARNING: shift/reduce conflict for IF in state 37 resolved as shift
-WARNING: shift/reduce conflict for NUMERO in state 37 resolved as shift
-WARNING: shift/reduce conflict for CADENA in state 37 resolved as shift
+WARNING: shift/reduce conflict for Puntos in state 37 resolved as shift
+WARNING: shift/reduce conflict for Texto in state 37 resolved as shift
 WARNING: shift/reduce conflict for DO in state 37 resolved as shift
 WARNING: shift/reduce conflict for WHILE in state 37 resolved as shift
-WARNING: shift/reduce conflict for ID in state 68 resolved as shift
-WARNING: shift/reduce conflict for VAR in state 68 resolved as shift
-WARNING: shift/reduce conflict for IF in state 68 resolved as shift
-WARNING: shift/reduce conflict for NUMERO in state 68 resolved as shift
-WARNING: shift/reduce conflict for CADENA in state 68 resolved as shift
-WARNING: shift/reduce conflict for DO in state 68 resolved as shift
-WARNING: shift/reduce conflict for WHILE in state 68 resolved as shift
-WARNING: shift/reduce conflict for ID in state 75 resolved as shift
-WARNING: shift/reduce conflict for VAR in state 75 resolved as shift
-WARNING: shift/reduce conflict for IF in state 75 resolved as shift
-WARNING: shift/reduce conflict for NUMERO in state 75 resolved as shift
-WARNING: shift/reduce conflict for CADENA in state 75 resolved as shift
-WARNING: shift/reduce conflict for DO in state 75 resolved as shift
-WARNING: shift/reduce conflict for WHILE in state 75 resolved as shift
-WARNING: shift/reduce conflict for RBLOCK in state 81 resolved as shift
-WARNING: shift/reduce conflict for ID in state 81 resolved as shift
-WARNING: shift/reduce conflict for VAR in state 81 resolved as shift
-WARNING: shift/reduce conflict for IF in state 81 resolved as shift
-WARNING: shift/reduce conflict for NUMERO in state 81 resolved as shift
-WARNING: shift/reduce conflict for CADENA in state 81 resolved as shift
-WARNING: shift/reduce conflict for DO in state 81 resolved as shift
-WARNING: shift/reduce conflict for WHILE in state 81 resolved as shift
-WARNING: shift/reduce conflict for RBLOCK in state 83 resolved as shift
-WARNING: shift/reduce conflict for ID in state 83 resolved as shift
-WARNING: shift/reduce conflict for VAR in state 83 resolved as shift
-WARNING: shift/reduce conflict for IF in state 83 resolved as shift
-WARNING: shift/reduce conflict for NUMERO in state 83 resolved as shift
-WARNING: shift/reduce conflict for CADENA in state 83 resolved as shift
-WARNING: shift/reduce conflict for DO in state 83 resolved as shift
-WARNING: shift/reduce conflict for WHILE in state 83 resolved as shift
+WARNING: shift/reduce conflict for ID in state 70 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 70 resolved as shift
+WARNING: shift/reduce conflict for IF in state 70 resolved as shift
+WARNING: shift/reduce conflict for Puntos in state 70 resolved as shift
+WARNING: shift/reduce conflict for Texto in state 70 resolved as shift
+WARNING: shift/reduce conflict for DO in state 70 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 70 resolved as shift
+WARNING: shift/reduce conflict for ID in state 77 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 77 resolved as shift
+WARNING: shift/reduce conflict for IF in state 77 resolved as shift
+WARNING: shift/reduce conflict for Puntos in state 77 resolved as shift
+WARNING: shift/reduce conflict for Texto in state 77 resolved as shift
+WARNING: shift/reduce conflict for DO in state 77 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 77 resolved as shift
+WARNING: shift/reduce conflict for RayoR in state 85 resolved as shift
+WARNING: shift/reduce conflict for ID in state 85 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 85 resolved as shift
+WARNING: shift/reduce conflict for IF in state 85 resolved as shift
+WARNING: shift/reduce conflict for Puntos in state 85 resolved as shift
+WARNING: shift/reduce conflict for Texto in state 85 resolved as shift
+WARNING: shift/reduce conflict for DO in state 85 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 85 resolved as shift
+WARNING: shift/reduce conflict for RayoR in state 87 resolved as shift
+WARNING: shift/reduce conflict for ID in state 87 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 87 resolved as shift
+WARNING: shift/reduce conflict for IF in state 87 resolved as shift
+WARNING: shift/reduce conflict for Puntos in state 87 resolved as shift
+WARNING: shift/reduce conflict for Texto in state 87 resolved as shift
+WARNING: shift/reduce conflict for DO in state 87 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 87 resolved as shift
+WARNING: shift/reduce conflict for ID in state 96 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 96 resolved as shift
+WARNING: shift/reduce conflict for IF in state 96 resolved as shift
+WARNING: shift/reduce conflict for Puntos in state 96 resolved as shift
+WARNING: shift/reduce conflict for Texto in state 96 resolved as shift
+WARNING: shift/reduce conflict for DO in state 96 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 96 resolved as shift
+WARNING: shift/reduce conflict for RayoR in state 97 resolved as shift
 WARNING: shift/reduce conflict for ID in state 97 resolved as shift
 WARNING: shift/reduce conflict for VAR in state 97 resolved as shift
 WARNING: shift/reduce conflict for IF in state 97 resolved as shift
-WARNING: shift/reduce conflict for NUMERO in state 97 resolved as shift
-WARNING: shift/reduce conflict for CADENA in state 97 resolved as shift
+WARNING: shift/reduce conflict for Puntos in state 97 resolved as shift
+WARNING: shift/reduce conflict for Texto in state 97 resolved as shift
 WARNING: shift/reduce conflict for DO in state 97 resolved as shift
 WARNING: shift/reduce conflict for WHILE in state 97 resolved as shift
-WARNING: shift/reduce conflict for RBLOCK in state 98 resolved as shift
-WARNING: shift/reduce conflict for ID in state 98 resolved as shift
-WARNING: shift/reduce conflict for VAR in state 98 resolved as shift
-WARNING: shift/reduce conflict for IF in state 98 resolved as shift
-WARNING: shift/reduce conflict for NUMERO in state 98 resolved as shift
-WARNING: shift/reduce conflict for CADENA in state 98 resolved as shift
-WARNING: shift/reduce conflict for DO in state 98 resolved as shift
-WARNING: shift/reduce conflict for WHILE in state 98 resolved as shift
