@@ -104,22 +104,11 @@ def p_var(p):
 
 
 def p_error(p):
-    
     if VERBOSE: 
-        
         if p is not None:
           tablas.guardarError(p)
 
-parser = yacc.yacc()
 
-if __name__ == '__main__':
-    if (len(sys.argv) > 1):
-        script = sys.argv[1]
-        scriptfile = open(script, 'r')
-        scriptdata = scriptfile.read()
-        print("INICIA ANALISIS SINTACTICO")
-        parser.parse(scriptdata, tracking=False)
-        print("TERMINA ANALISIS SINTACTICO")
-
-    else:
-        print(chr(27)+"[0;31m"+"COMPILA")
+def parsear(texto):
+    parser = yacc.yacc()
+    parser.parse(texto, tracking=False)

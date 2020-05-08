@@ -5,11 +5,13 @@ path.insert(0,"./analizadores/")
 import tablas
 from platform import system
 from AnalizadorLex import escanear
+from AnalizadorSin import parsear
 
 @eel.expose
 def analizar(texto):
   # obtenemos las variables desde utils
   escanear(texto)
+  parsear(texto)
   if len(tablas.tablaSimbolos) > 0:
     eel.printGui(tablas.tablaSimbolos,"simbols")
   if len(tablas.tablaErrores) > 0:
