@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./styles.css">
+	<title>Super Mario Kart Compiler</title>
+</head>
+<body>
+	<div class="app">
+		<div class="title">Super Mario Kart </div>
+		<form action="" class="areas">
+			<div class="input">
+				<textarea class="area input__area" spellcheck="false" name="input" id="input" placeholder="Ingresa el codigo"></textarea>
+			</div>
+			<div id="play" class="play">
+				<img  id="playImage"class="play__image" src="/assets/play.png">
+				<span class="play__span">Correr</span>
+			</div>
+			<div class="output">
+			  <div class="output__simbol">
+					<span class="subtitle simbol__subtitle">Tabla de Simbolos</span>
+				  <textarea id="simbols" class="area simbol__area" disabled="true" name="input" id="input"></textarea>
+			  </div>
+			  <div class="output__error">
+					<span class="subtitle error__subtitle">Tabla de Errores</span>
+				  <textarea id="errors" class="area error__area"  disabled="true" name="input" id="input"></textarea>
+			  </div>
+			</div>
+		</form>
+	</div>
+	<script src="/eel.js"></script>
+	<script src="/app.js"></script>
+</body>
+</html>

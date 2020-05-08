@@ -1,0 +1,192 @@
+*,
+*::before,
+*::after{
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+}
+
+@font-face{
+	font-family: Mario;
+	src: url(./assets/SuperMario256.ttf)
+}
+
+.app{
+	width: 960px;
+	height: 540px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	background-image: url(./assets/bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: Mario;
+}
+
+.title{
+	font-size: 4em;
+	background-image: linear-gradient(180deg, rgba(251,0,0,1) 0%, rgba(254,255,0,1) 100%);
+	color: transparent;
+	-webkit-background-clip: text; 
+	-webkit-text-stroke: 2.5px black;
+	letter-spacing: 2.5px;
+	text-stroke: 1px black;
+	background-clip: text; 
+	margin: 0.2em 0;
+}
+
+.areas{
+	width: 100%;
+	height: 490px;
+	padding: 0 1em;
+	display: flex;
+	align-items: center;
+	justify-content: space-around
+}
+.input,
+.output{
+	width: 40%;
+	height: 92%;
+}
+
+.input{
+	position: relative;
+  background-image: url(./assets/thwomp.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	transition: transform 0.2s ease;
+}
+
+.input:hover{
+	transform: scale(1.05,1.05);
+}
+
+.area{
+	position: absolute;
+	background-color: rgba(154, 156, 147, 0.6);
+	padding: 1em;
+	color: aliceblue;
+	font-family: Helvetica;
+	font-weight: bolder;
+	font-size: 1.3em;
+	-webkit-text-stroke: 0.5px black;
+	resize: none;
+	outline: none;
+}
+
+.input__area{
+  left: 3.3em;
+	top: 3.3em;
+	border-radius: 40px;
+	width: 16.7em;
+	height: 19.4em;
+	font-size: 1em;
+	-webkit-text-stroke: 0.2px black;
+}
+
+.subtitle,
+.input__area::placeholder{
+	font-family: Mario;
+	color: #eee;
+	-webkit-text-stroke: 0.5px black;
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
+.play{
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.2s ease;
+}
+
+.play:hover{
+	transform: scale(1.2,1.2);
+}
+
+.play__image{
+	width: 70px;
+	height: 70px;
+}
+
+.play__span{
+	color: aliceblue;
+	margin-top: 0.5em;
+	-webkit-text-stroke: 0.4px black;
+}
+
+.output{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.output__simbol,
+.output__error{
+  width: 100%;
+	height: 45%;
+  background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	position: relative;
+}
+
+.output__simbol{
+	background-image: url(/assets/bullet.png);
+}
+
+.output__error{
+	background-image: url(/assets/bulletI.png);
+}
+
+.subtitle{
+  position: absolute;
+  width: 50%;
+	top: 0.5em;
+}
+
+.subtitle::before{
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 0.25em;
+	bottom: -7px;
+	background-color: aliceblue;
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+.simbol__subtitle{
+	left: 2.4rem;
+}
+
+.error__subtitle{
+	right: 2em;
+}
+
+.error__subtitle::before{
+	left: -1.1em;
+}
+
+.simbol__area,
+.error__area{
+	width: 19em;
+	height: 10em;
+	top: 2.8em;
+	background-color: rgba(60, 60, 60, 0.5); 
+	border: 1px solid #555;
+	padding: 0.3em;
+	font-size: 0.8em;
+	-webkit-text-stroke: 0.15px black;
+}
+
+.simbol__area{
+	left: 4em;
+}
+
+.error__area{
+	right: 3.5em;
+}

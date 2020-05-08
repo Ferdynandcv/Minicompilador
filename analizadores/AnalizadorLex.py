@@ -1,6 +1,6 @@
 import sys
 import ply.lex as lex
-
+import tablas
 
 tokens = (
 
@@ -138,35 +138,16 @@ def t_Texto(t):
 
 
 def t_error(t):
-    error = t.value[0]
-    for x in error:
-        print("Error Token")
-        print("Linea: "+str(t.lexer.lineno)+"\t=== "+x)
-
+    tablas.guardarError(t);
     t.lexer.skip(1)
 
 
-lexer = lex.lex()
-
-if __name__ == '__main__':
-    if (len(sys.argv) > 1):
-        script = sys.argv[1]
-
-        scriptfile = open(script, 'r')
-        scriptdata = scriptfile.read()
-        lexer.input(scriptdata)
-
-        print ("INICIA ANALISIS LEXICO")
-        i = 1
-        while True:
-            tok = lexer.token()
-            if not tok:
-                break
-            print ("\t"+str(i)+" - "+"Line: "+str(tok.lineno)+"\t"+str(tok.type)+"\t            ~~  "+str(tok.value))
-            i += 1
-        
-        print ("TERMINA ANALISIS LEXICO")
-    else:
-        print ("COMPILA")
-
-
+def escanear(texto):
+  lexer = lex.lex()
+  lexer.input(texto)
+  i = 1
+  while True:
+    tok = lexer.token()
+    if not tok: break
+    i += 1
+    tablas.guardarSimbolo(tok)
