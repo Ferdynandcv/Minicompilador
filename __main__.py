@@ -4,14 +4,17 @@ from sys import path
 path.insert(0,"./analizadores/")
 import tablas
 from platform import system
+from AnalizadorLex import escanear
 
 @eel.expose
 def analizar(texto):
   # obtenemos las variables desde utils
+  escanear(texto)
   if len(tablas.tablaSimbolos) > 0:
-    print("simbolos")
+    eel.printGui(tablas.tablaSimbolos,"simbols")
   if len(tablas.tablaErrores) > 0:
-    print("errores")
+    eel.printGui(tablas.tablaErrores,"errors")
+    eel.showGif("Error")
   else:
     eel.showGif("noError")
 

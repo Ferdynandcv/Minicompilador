@@ -138,8 +138,7 @@ def t_Texto(t):
 
 
 def t_error(t):
-    tabla.guardarError(t);
-   
+    tablas.guardarError(t);
     t.lexer.skip(1)
 
 

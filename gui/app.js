@@ -5,10 +5,10 @@ let simbols = document.getElementById("simbols");
 let errors = document.getElementById("errors");
 let playImage = document.getElementById("playImage");
 
-
 //functions
 
-function launchGif(type){
+eel.expose(showGif)
+function showGif(type){
 	playImage.src =  type === "error" ? "./assets/errors.gif" : "./assets/noErrors.gif";
 	setTimeout(()=>{
 	  playImage.src = "./assets/play.png"
@@ -16,25 +16,34 @@ function launchGif(type){
 
 }
 
+eel.expose(printGui)
+function printGui(text,type){
+	if(type === "errors"){
+		errors.value = text;
+	}
+	else{
+		simbols.value = text;
+	}
+}
+
 function cleanResults(){
 	simbols.value = "";
 	errors.value = "";
+	ee.limpiar()
 }
 
 (function events(){
 	document.addEventListener('DOMContentLoaded', () =>{
-		launchGif("slfjaerror")
 	});
 
 	playButton.addEventListener("click", () =>{
 		let code = input.value;
-		code != "" && console.log(code);
+		code != "" && eel.analizar(code);
 	});
 
 	input.addEventListener("keyup", ()=>{
 		cleanResults();
 	})
-
 
 })();
 
