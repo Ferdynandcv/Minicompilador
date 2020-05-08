@@ -1,7 +1,7 @@
 import sys
 import ply.yacc as yacc
+import tablas
 from AnalizadorLex import tokens
-    
 
 VERBOSE = 1
 
@@ -108,10 +108,7 @@ def p_error(p):
     if VERBOSE: 
         
         if p is not None:
-            print("ERROR Sintactico")
-            print("Linea: "+str(p.lexer.lineno)+"\t== "+str(p.value))
-
-
+          tablas.guardarError(p)
 
 parser = yacc.yacc()
 
