@@ -29,7 +29,7 @@ function printGui(text,type){
 function cleanResults(){
 	simbols.value = "";
 	errors.value = "";
-	ee.limpiar()
+	eel.clean()
 }
 
 (function events(){
@@ -39,6 +39,7 @@ function cleanResults(){
 	playButton.addEventListener("click", () =>{
 		let code = input.value;
 		code != "" && eel.analizar(code);
+		cleanResults();
 	});
 
 	input.addEventListener("keyup", ()=>{

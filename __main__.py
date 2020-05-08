@@ -8,6 +8,11 @@ from AnalizadorLex import escanear
 from AnalizadorSin import parsear
 
 @eel.expose
+def clean():
+  tablas.tablaSimbolos = ""
+  tablas.tablaErrores= ""
+
+@eel.expose
 def analizar(texto):
   # obtenemos las variables desde utils
   escanear(texto)
@@ -16,7 +21,7 @@ def analizar(texto):
     eel.printGui(tablas.tablaSimbolos,"simbols")
   if len(tablas.tablaErrores) > 0:
     eel.printGui(tablas.tablaErrores,"errors")
-    eel.showGif("Error")
+    eel.showGif("error")
   else:
     eel.showGif("noError")
 
