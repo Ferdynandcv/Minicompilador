@@ -164,7 +164,6 @@ if __name__ == '__main__':
                 break
             print ("\t"+str(i)+" - "+"Line: "+str(tok.lineno)+"\t"+str(tok.type)+"\t            ~~  "+str(tok.value))
             i += 1
-        
         print ("TERMINA ANALISIS LEXICO")
     else:
         print ("COMPILA")
